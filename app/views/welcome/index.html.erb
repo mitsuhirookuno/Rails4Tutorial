@@ -1,2 +1,12 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
+
+<% if login? %>
+  こんにちは、<%= current_user.name %>さん<br />
+  <%= link_to '銘柄基本情報表示', '/qrapi' %>
+<% else %>
+  ログインをすると機能が利用できます
+<% end %>
+
+<hr />
+<%= render "login_menu" %>
