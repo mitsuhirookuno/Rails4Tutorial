@@ -37,9 +37,37 @@ end
 
 # Use unicorn as the app server
 # gem 'unicorn'
+gem 'thin'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# http://starryskylogic.blogspot.jp/2012/04/rails32-rspectdd.html
+gem 'rspec-rails'
+group :test do
+  # gem 'simplecov'
+  # gem 'simplecov-rcov'
+  # gem 'spork'
+  # gem 'webrat'
+  # gem 'flog'
+  # gem 'flay'
+  # gem 'roodi1.9'
+  # gem 'reek', '~> 1.2.6'
+  # gem 'brakeman'
+  gem 'mocha', :require => false
+end
+
+group :development do
+  # gem 'yard'
+  # gem 'redcarpet'
+  # gem 'github-markup'
+  # gem 'code_analyzer'
+  # gem 'rails_best_practices'
+  # gem 'faraday'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-nav'
+end
