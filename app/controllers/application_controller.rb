@@ -25,7 +25,11 @@ class ApplicationController < ActionController::Base
   
   def authenticate
     if request.fullpath.match(/^\/top/)
-      redirect_to '/sessions' if login? == false
+      if login?.blank?
+        redirect_to '/sessions'
+      else
+        logger.info('login')
+      end
     end
   end
   
