@@ -1,0 +1,5 @@
+<% if login? %>
+  <%= link_to 'ログアウト', session_path(current_user.id), :confirm => 'ログアウトしますか？', :method => :delete %><br />
+<% else %>
+  <%= link_to 'ログイン', sessions_path %>
+<% end %>
