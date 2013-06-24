@@ -48,8 +48,8 @@ gem 'thin'
 # http://starryskylogic.blogspot.jp/2012/04/rails32-rspectdd.html
 gem 'rspec-rails'
 group :test do
-  # gem 'simplecov'
-  # gem 'simplecov-rcov'
+  gem 'simplecov'
+  gem 'simplecov-rcov'
   # gem 'spork'
   # gem 'webrat'
   # gem 'flog'
@@ -61,7 +61,7 @@ group :test do
 end
 
 group :development do
-  # gem 'yard'
+  gem 'yard'
   # gem 'redcarpet'
   # gem 'github-markup'
   # gem 'code_analyzer'
