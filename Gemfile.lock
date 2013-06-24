@@ -27,6 +27,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.9)
+    bcrypt-ruby (3.0.1)
     builder (3.1.4)
     coderay (1.0.9)
     coffee-rails (4.0.0)
@@ -63,6 +64,8 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.7.7)
     polyglot (0.3.3)
+    protected_attributes (1.0.1)
+      activemodel (>= 4.0.0.beta, < 5.0)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -153,10 +156,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
   mocha
+  protected_attributes
   pry
   pry-nav
   pry-rails
