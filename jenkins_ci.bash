@@ -1,6 +1,7 @@
 #!/bin/bash
 
 bundle install --path vendor/bundler/
+bundle exec rake db:migrate RAILS_ENV=test
 bundle exec rspec
 if [ $? -ne 0 ]; then
   exit 1
