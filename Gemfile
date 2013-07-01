@@ -66,7 +66,6 @@ group :development do
   # gem 'github-markup'
   # gem 'code_analyzer'
   # gem 'rails_best_practices'
-  # gem 'faraday'
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-nav'
@@ -74,3 +73,5 @@ end
 
 ## http://stackoverflow.com/questions/15520151/rails-4-authentication
 gem 'protected_attributes'
+## http://qiita.com/tarhashi/items/3f8a99d3a1fcb54eba63
+gem 'faraday'

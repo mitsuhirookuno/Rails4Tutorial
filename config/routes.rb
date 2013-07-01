@@ -1,4 +1,9 @@
 Rails4Sandbox::Application.routes.draw do
+  get "qiita/tags"
+  get "qiita/users"
+  get "qiita/index"
+  get "qiita/tags/:tag" => "qiita#tags"
+  get "qiita/users/:user" => "qiita#users"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
