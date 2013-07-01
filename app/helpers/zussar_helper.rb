@@ -1,0 +1,2 @@
+module ZussarHelper
+end

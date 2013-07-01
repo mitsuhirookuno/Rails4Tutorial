@@ -1,4 +1,5 @@
 Rails4Sandbox::Application.routes.draw do
+  get "zussar/index"
   get "qiita/tags"
   get "qiita/users"
   get "qiita/index"
