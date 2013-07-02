@@ -1,0 +1,20 @@
+<h1>Zussar#users</h1>
+<p>Find me in app/views/zussar/users.html.erb</p>
+
+<table>
+  <tr>
+    <td><%=1 %></td>
+    <td><%=link_to( @zusaar_user['nickname'], @zusaar_user['profile_url'] ) %></td>
+    <td><%=link_to( @zusaar_user['nickname'], action: 'users', user_id: @zusaar_user['user_id']  ) %></td>
+  </tr>
+</table>
+
+主催者<br/>
+<% @zusaar_owner_event_list['event'].each{|event| %>
+  <%= link_to( event['title'], action: 'index', event_id: event['event_id'] ) %><br/>
+<% } %>
+
+参加<br/>
+<% @zusaar_user_event_list['event'].each{|event| %>
+  <%= link_to( event['title'], action: 'index', event_id: event['event_id'] ) %><br/>
+<% } %>
