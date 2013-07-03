@@ -1,6 +1,3 @@
-<h1>Qiita#users</h1>
-<p>Find me in app/views/qiita/users.html.erb</p>
-
 <table border='1'>
 <% @qiita_timelines.each_with_index{ | timeline, index | %>
   <tr>
@@ -14,7 +11,7 @@
       <% } %>
     </td>
     <td><%=link_to timeline['title'], timeline['url'] %></td>
-    <td><%= link_to( image_tag( timeline['user']['profile_image_url'], size: '32x32', alt: timeline['user']['url_name'], title: timeline['user']['url_name']  ), action: 'users', user: timeline['user']['url_name'] ) %></td>
+    <td><%=link_to( image_tag( timeline['user']['profile_image_url'], size: '32x32', alt: timeline['user']['url_name'], title: timeline['user']['url_name']  ), action: 'users', user: timeline['user']['url_name'] ) %></td>
   </tr>
 <% } %>
 </table>

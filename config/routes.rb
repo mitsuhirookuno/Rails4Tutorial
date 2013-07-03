@@ -1,4 +1,5 @@
 Rails4Sandbox::Application.routes.draw do
+  devise_for :users
   get "zussar/index"
   get "zussar/users/:user_id" => "zussar#users"
   get "zussar/index/:event_id" => "zussar#index"
@@ -23,7 +24,7 @@ Rails4Sandbox::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :sessions
+  # resources :sessions
 
   # Example resource route with options:
   #   resources :products do

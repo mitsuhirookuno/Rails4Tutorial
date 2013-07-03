@@ -7,8 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-<%= yield %>
+<div id='header'>
+  <header>Ruby2.1&Rails4練習台アプリ</header>
+  <h1>Deviseのテスト中</h1>
+  <% if user_signed_in? %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "ログイン", new_user_session_path %>
+  <% end %>
+</div>
+
+<hr/>
+
+<div id='body'>
+  <%= yield %>
+</div>
+
+<hr/>
+
+<div id='footer'>
+  <footer>
+    <%=link_to( 'on github', 'https://github.com/mitsuhirookuno/Rails4Tutorial') %>
+    <%=link_to( 'on jenkins', 'http://jenkins.rubyprogrammer.info/job/Rails4Tutorial/') %>
+  </footer>
+</div>
 
 </body>
 </html>

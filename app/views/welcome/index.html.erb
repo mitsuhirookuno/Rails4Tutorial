@@ -1,14 +1,4 @@
-<table border='1'>
-
-<%=link_to 'qiita', controller: 'qiita', action: 'index' %><br />
-<%=link_to 'zussar', controller: 'zussar', action: 'index', event_id: 864003 %><br />
-
-<% if login? %>
-  こんにちは、<%= current_user.name %>さん<br />
-  <%= link_to '初期ページ', '/top/index' %>
-<% else %>
-  ログインをすると機能が利用できます
-<% end %>
-
+<%=link_to 'qiita api', controller: 'qiita', action: 'index' %><br />
+<%=link_to 'zussar api', controller: 'zussar', action: 'index', event_id: 864003 %><br />
 <hr />
-<%= render "login_menu" %>
+<%= link_to '初期ページ', '/top/index' %>

@@ -75,3 +75,5 @@ end
 gem 'protected_attributes'
 ## http://qiita.com/tarhashi/items/3f8a99d3a1fcb54eba63
 gem 'faraday'
+### https://github.com/plataformatec/devise
+gem 'devise'

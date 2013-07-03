@@ -1,19 +1,23 @@
-<table>
+<table border=1>
   <tr>
     <td><%=1 %></td>
     <td><%=link_to( @zusaar_user['nickname'], action: 'users', user_id: @zusaar_user['user_id']  ) %></td>
-    <td><%=link_to( 'profile', @zusaar_user['profile_url'] ) %></td>
+    <% if @zusaar_user['profile_url'].match(%r!^http://twitter\.com!)
+         sns_type = 'twiiter'
+       elsif  @zusaar_user['profile_url'].match(%r!^http://www\.facebook\.com!)
+         sns_type = 'facebook'
+       else
+         sns_type = 'mixi'
+       end %>
+    <td><%=link_to( sns_type, @zusaar_user['profile_url'] ) %></td>
   </tr>
 </table>
-
-<hr />
 
 主催者となったイベント数:<%=@zusaar_owner_event_list['event'].size %><br/>
 <% @zusaar_owner_event_list['event'].each{|event| %>
   <%= link_to( event['title'], action: 'index', event_id: event['event_id'] ) %><br/>
 <% } %>
 
-<hr />
 参加したイベント:<%=@zusaar_user_event_list['event'].size %><br/>
 <% @zusaar_user_event_list['event'].each{|event| %>
   <%= link_to( event['title'], action: 'index', event_id: event['event_id'] ) %><br/>
