@@ -77,3 +77,8 @@ gem 'protected_attributes'
 gem 'faraday'
 ### https://github.com/plataformatec/devise
 gem 'devise'
+
+### http://d.hatena.ne.jp/xlis/20130317/1363529264
+### http://ppworks.hatenablog.jp/entry/2012/02/19/033644
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
