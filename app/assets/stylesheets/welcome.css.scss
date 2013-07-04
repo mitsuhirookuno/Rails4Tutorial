@@ -1,0 +1,30 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.header {
+  background-color:  floralwhite ;
+  width: 1024px ;
+  height: 75px ;
+}
+
+header {
+  display: table-cell;
+}
+
+div.body {
+  background-color:  whitesmoke ; 
+  border: ridge 3px #6c9 ;
+  width: 1024px ;
+  height: 600px ;
+  overflow:auto; 
+}
+
+div.footer {
+  background-color: InactiveBorder ;
+  width: 1024px ;
+}
+
+footer {
+  display: table-cell;
+}
