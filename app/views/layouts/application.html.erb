@@ -7,17 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<div class='header'>
   <header>
-    <%=link_to( image_tag( '/images/title.png', :size => '160x75', ), '/') %>
-    <% if user_signed_in? %>
-      <%= link_to "#{current_user.email}をログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
+    <div class='header'>
+      <%=link_to( image_tag( '/images/title.png', :size => '160x75', ), '/', { class: :title_link }) %>
+      <% if user_signed_in? %>
+        <%="#{current_user.email}を" %>
+        <%= button_to "ログアウト", destroy_user_session_path, { method: :delete, class: :session } %>
+      <% else %>
+        <%= button_to "ログイン", new_user_session_path, { method: :get, class: :session } %>
+      <% end %>
+    </div>
   </header>
-</div>
 
 <div class='body'>
   <p class="notice"><%= notice %></p>
@@ -25,13 +25,13 @@
   <%= yield %>
 </div>
 
-<div class='footer'>
-  <footer>
+<footer>
+  <div class='footer'>
     <%=link_to( 'on github', 'https://github.com/mitsuhirookuno/Rails4Tutorial') %>
     <%=link_to( 'on jenkins', 'http://jenkins.rubyprogrammer.info/job/Rails4Tutorial/') %>
     <%=Time.now.strftime('%Y/%m/%d %H:%M:%S') %>
-  </footer>
-</div>
+  </div>
+</footer>
 
 </body>
 </html>

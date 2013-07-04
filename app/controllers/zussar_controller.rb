@@ -3,11 +3,7 @@
 class ZussarController < ApplicationController
   
   def index
-    connection = Faraday::Connection.new( :url => "http://www.zusaar.com" ) do |builder|
-      builder.use Faraday::Request::UrlEncoded  # リクエストパラメータを URL エンコードする
-      # builder.use Faraday::Response::Logger     # リクエストを標準出力に出力する
-      builder.use Faraday::Adapter::NetHttp     # Net/HTTP をアダプターに使う
-    end
+    connection = get_connection
     
     response = connection.get "/api/event/?event_id=#{params[:event_id]}"
     @zusaar_event_list = ActiveSupport::JSON.decode( response.body )
@@ -17,11 +13,7 @@ class ZussarController < ApplicationController
   end
   
   def users
-    connection = Faraday::Connection.new( :url => "http://www.zusaar.com" ) do |builder|
-      builder.use Faraday::Request::UrlEncoded  # リクエストパラメータを URL エンコードする
-      # builder.use Faraday::Response::Logger     # リクエストを標準出力に出力する
-      builder.use Faraday::Adapter::NetHttp     # Net/HTTP をアダプターに使う
-    end
+    connection = get_connection
     
     response = connection.get "/api/event/user/?user_id=#{params[:user_id]}"
     @zusaar_user_list = ActiveSupport::JSON.decode( response.body )
@@ -32,6 +24,17 @@ class ZussarController < ApplicationController
     
     response = connection.get "/api/event/?user_id=#{params[:user_id]}"
     @zusaar_user_event_list = ActiveSupport::JSON.decode( response.body )
+  end
+  
+  private if Rails.env != "development"
+  
+  def get_connection
+    connection = Faraday::Connection.new( :url => "http://www.zusaar.com" ) do |builder|
+      builder.use Faraday::Request::UrlEncoded  # リクエストパラメータを URL エンコードする
+      # builder.use Faraday::Response::Logger     # リクエストを標準出力に出力する
+      builder.use Faraday::Adapter::NetHttp     # Net/HTTP をアダプターに使う
+    end
+    connection
   end
   
 end
