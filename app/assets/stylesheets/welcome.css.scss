@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @charset "UTF-8";
 
+/*
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -64,13 +65,6 @@ footer {
   height: 75px ;
 }
 
-input.common {
-  background: -moz-linear-gradient(center top , #FFA400 0%, #F08300 100%) repeat scroll 0 0 transparent;
-  border: 1px solid #B37504;
-  border-radius: 3px 3px 3px 3px;
-  color: #FFFFFF;
-  padding: 5px 8px;
-}
 
 input.session {
   background: linear-gradient(to bottom, #0199B3 0%, #016372 100%) repeat scroll 0 0 transparent;
@@ -81,3 +75,11 @@ input.session {
   width: 7em;
 }
 
+*/
+input.common {
+  background: -moz-linear-gradient(center top , #FFA400 0%, #F08300 100%) repeat scroll 0 0 transparent;
+  border: 1px solid #B37504;
+  border-radius: 3px 3px 3px 3px;
+  color: #FFFFFF;
+  padding: 5px 8px;
+}

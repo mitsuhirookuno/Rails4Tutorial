@@ -44,12 +44,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Rails4Sandbox</a>
+          <a class="brand" href="#"><%=image_tag( '/images/title.png', :size => '160x75', ) %></a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li>
+                <% if user_signed_in? %>
+                  <%= link_to "ログアウト", destroy_user_session_path %>
+                <% else %>
+                  <%= link_to "ログイン", new_user_session_path %>
+               <% end %>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -62,9 +66,9 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "TOP", "/"  %></li>
+              <li><%= link_to "QIITA-API", { controller: '/qiita', action: 'index'}  %></li>
+              <li><%= link_to "ZUSSAR-API", { controller: '/zussar', action: 'index', event_id: 864003}  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -75,7 +79,12 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2013</p>
+        <p>
+          © Team Panya 2013
+          <%=link_to( 'onGithub', 'https://github.com/mitsuhirookuno/Rails4Tutorial') %>
+          <%=link_to( 'onJenkins', 'http://jenkins.rubyprogrammer.info/job/Rails4Tutorial/') %>
+          <%=Time.now.strftime('%Y/%m/%d %H:%M:%S') %>
+        </p>
       </footer>
 
     </div> <!-- /container -->

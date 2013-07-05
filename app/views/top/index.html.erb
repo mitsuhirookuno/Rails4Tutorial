@@ -1,2 +1,3 @@
-<h1>Top#index</h1>
-<p>Find me in app/views/top/index.html.erb</p>
+<%=button_to 'qiita api', { controller: 'qiita', action: 'index'}, { method: :get, class: :common } %><br />
+<%=button_to 'zussar api', { controller: 'zussar', action: 'index', event_id: 864003}, { method: :get, class: :common } %><br />
+<%=link_to '初期ページ', '/top/index' %>
