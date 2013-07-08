@@ -1,14 +1,14 @@
-<h4><%=link_to( @zusaar_user['nickname'], action: 'users', user_id: @zusaar_user['user_id']  ) %></h4>
+<h4><%=link_to( @user.nickname, action: 'users', user_id: @user.user_id  ) %></h4>
 <%
-  if @zusaar_user['profile_url'].match(%r!^http://twitter\.com!)
+  if @user.profile_url.match(%r!^http://twitter\.com!)
     sns_type = 'twiiter'
-  elsif  @zusaar_user['profile_url'].match(%r!^http://www\.facebook\.com!)
+  elsif  @user.profile_url.match(%r!^http://www\.facebook\.com!)
     sns_type = 'facebook'
   else
     sns_type = 'mixi'
   end
 %>
-<h5><%=link_to( sns_type, @zusaar_user['profile_url'] ) %></h5>
+<h5><%=link_to( sns_type, @user.profile_url ) %></h5>
 
 <table border=1>
   <tr>
@@ -17,21 +17,21 @@
     <th>主催/一般</th>
     <th>参加人数</th>
   </tr>
-  <% @zusaar_user_event_list['event'].each_with_index{|event,index| %>
+  <% @user_events.each_with_index{|event,index| %>
   <tr>
    <td><%= index+1 %></td>
    <td>
-     <%= link_to( event['title'], action: 'index', event_id: event['event_id'] ) %>
+     <%= link_to( event.title, action: 'index', event_id: event.event_id ) %>
    </td>
    <td>
-     <% if @zusaar_owner_event_list['event'].find{|e| e['event_id'] == '864003' } %>
+     <% if @owner_events.find{|e| e.event_id == event.event_id } %>
        主催
      <% else %>
        一般
      <% end %>
    </td>
    <td>
-     <%= event['accepted'] %>
+     <%= event.accepted %>
    </td>
   </tr>
   <% } %>
