@@ -1,4 +1,6 @@
 Rails4Sandbox::Application.routes.draw do
+  get "connpass/index/:event_id" => "connpass#index"
+  get "connpass/users/:user_id" => "connpass#users"
   devise_for :users
   get "zussar/index"
   get "zussar/users/:user_id" => "zussar#users"
