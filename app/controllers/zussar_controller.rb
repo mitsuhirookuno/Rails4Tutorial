@@ -3,6 +3,11 @@
 class ZussarController < ApplicationController
   
   def index
+    # @search_results_events = Zusaar.search_events( params )
+    # @search_results_users = Zusaar.search_users( params )
+    # events.events.first
+    # users.events.first.limit
+    # users.events.first.users.first
     response = get_zusaar_connection.get "/api/event/?event_id=#{params[:event_id]}"
     @zusaar_event_list = ActiveSupport::JSON.decode( response.body )
     
