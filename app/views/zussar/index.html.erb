@@ -1,14 +1,15 @@
 <% event = @zusaar_event_list['event'].first %>
-<%= event['title'] %><br/>
+<%= link_to( event['title'], event['event_url'] ) %><br/>
+
 <%= event['accepted'] %>/<%= event['limit'] %><br/>
 
 <% users = @zusaar_user_list['event'][0]['users'] %>
 <table border=1>
   <tr>
-    <th>参加順</td>
-    <th>参加者</td>
-    <th>ソーシャル</td>
-    <th>出席/欠席</td>
+    <th>参加順</th>
+    <th>参加者</th>
+    <th>ソーシャル</th>
+    <th>出席/欠席</th>
   </tr>
 <% users.each_with_index{ |user,index| %>
   <tr>

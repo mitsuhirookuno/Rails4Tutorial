@@ -33,4 +33,14 @@ class ApplicationController < ActionController::Base
   #  end
   #end
   
+  private if Rails.env != "development"
+  
+  def get_connection( domain )
+    connection = Faraday::Connection.new( :url => domain ) do |builder|
+      builder.use Faraday::Request::UrlEncoded  # リクエストパラメータを URL エンコードする
+      # builder.use Faraday::Response::Logger     # リクエストを標準出力に出力する
+      builder.use Faraday::Adapter::NetHttp     # Net/HTTP をアダプターに使う
+    end
+    connection
+  end
 end
