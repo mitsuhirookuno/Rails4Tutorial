@@ -3,21 +3,15 @@
 class QiitaController < ApplicationController
   
   def index
-    connection = get_qiita_connection
-    response = connection.get '/api/v1/items'
-    @qiita_timelines = ActiveSupport::JSON.decode( response.body )
+    @qiita_timelines = Qiita.user_items
   end
 
   def tags
-    connection = get_qiita_connection
-    response = connection.get "/api/v1/tags/#{params[:tag]}/items"
-    @qiita_timelines = ActiveSupport::JSON.decode( response.body )
+    @qiita_timelines =Qiita.tag_items params[:tag]
   end
 
   def users
-    connection = get_qiita_connection
-    response = connection.get "/api/v1/users/#{params[:user]}/items"
-    @qiita_timelines = ActiveSupport::JSON.decode( response.body )
+    @qiita_timelines =Qiita.user_items params[:user]
   end
   
   private if Rails.env != "development"
