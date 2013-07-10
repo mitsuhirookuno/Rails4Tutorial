@@ -11,7 +11,7 @@ describe ConnpassController do
 
   describe "GET 'users'" do
     it "returns http success" do
-      get 'users', { user_id: 123 }
+      get 'users', { nickname: 'umekumi' }
       response.should be_success
     end
   end
