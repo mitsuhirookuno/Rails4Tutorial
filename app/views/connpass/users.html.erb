@@ -1,2 +1,8 @@
-<h1>Connpass#users</h1>
-<p>Find me in app/views/connpass/users.html.erb</p>
+<table border=1>
+<% @events.each_with_index{ |event,index| %>
+  <tr>
+    <td><%= index+1 %></td>
+    <td><%= link_to( event['title'], event['event_url'] ) %></td>
+  </tr>
+<% } %>
+</table>

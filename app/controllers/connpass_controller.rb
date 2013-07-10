@@ -6,6 +6,8 @@ class ConnpassController < ApplicationController
   end
 
   def users
+    search_result = Connpass.event_search(params)
+    @events = search_result['events']
   end
   
 end
