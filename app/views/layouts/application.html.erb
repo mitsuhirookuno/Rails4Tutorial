@@ -67,9 +67,9 @@
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
               <li><%= link_to "TOP", "/"  %></li>
-              <li><%= link_to "QIITA-API", { controller: '/qiita', action: 'index' }  %></li>
-              <li><%= link_to "ZUSSAR-API", { controller: '/zussar', action: 'index', event_id: 864003 }  %></li>
-              <li><%= link_to "CONNPASS-API", { controller: '/connpass', action: 'index', event_id: 2907 }  %></li>
+              <li><%= link_to image_tag( '/images/qiita_icon.ico', :size => '16x16' ) + "QIITA-API", { controller: '/qiita', action: 'index' }  %></li>
+              <li><%= link_to image_tag( '/images/zusaar_icon.ico', :size => '16x16' ) + "ZUSSAR-API", { controller: '/zussar', action: 'index', event_id: 864003 }  %></li>
+              <li><%= link_to image_tag( '/images/connpass_icon.ico', :size => '16x16' ) + "CONNPASS-API", { controller: '/connpass', action: 'index', event_id: 2907 }  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -81,10 +81,10 @@
 
       <footer>
         <p>
-          © Team Pan-ya <%=image_tag( '/images/don_icon.png', :size => '16x16', ) %> 2013
-          <%=link_to( image_tag( '/images/github_icon.ico',  :size => '16x16', ) + 'onGithub',  'https://github.com/mitsuhirookuno/Rails4Tutorial') %>
-          <%=link_to( image_tag( '/images/jenkins_icon.ico', :size => '16x16', ) + 'onJenkins', 'http://jenkins.rubyprogrammer.info/job/Rails4Tutorial/') %>
-          <%=link_to( image_tag( '/images/blog_icon.png',    :size => '16x16', ) + 'onBlog',    'http://www.rubyprogrammer.info/') %>
+          <%=image_tag( '/images/don_icon.png', :size => '16x16', ) %>© Team Pan-ya 2013
+          <%=link_to( image_tag( '/images/github_icon.ico',  :size => '16x16' ) + 'onGithub',  'https://github.com/mitsuhirookuno/Rails4Tutorial') %>
+          <%=link_to( image_tag( '/images/jenkins_icon.ico', :size => '16x16' ) + 'onJenkins', 'http://jenkins.rubyprogrammer.info/job/Rails4Tutorial/') %>
+          <%=link_to( image_tag( '/images/blog_icon.png',    :size => '16x16' ) + 'onBlog',    'http://www.rubyprogrammer.info/') %>
         </p>
       </footer>
 
