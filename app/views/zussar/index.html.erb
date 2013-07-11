@@ -2,11 +2,15 @@
   <tr>
     <th></th>
     <th>タイトル</th>
+    <th>開催日</th>
   </tr>
 <% @events.each_with_index{|event,index| %>
   <tr>
     <td><%=(index+1) %></td>
-    <td><%= link_to( event.title, event.event_url ) %></td>
+    <td><%= link_to( event.title[0..40], action: 'events', event_id: event.event_id ) %></td>
+    <td><%= Time.parse(event.started_at).strftime('%Y/%m/%d') if event.started_at.presence %></td>
   </tr>
 <% } %>
 </table>
+
+<%= paginate @comments %>

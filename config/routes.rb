@@ -3,6 +3,7 @@ Rails4Sandbox::Application.routes.draw do
   get "connpass/users/:nickname" => "connpass#users"
   devise_for :users
   get "zussar/index"
+  get "zussar/index/:page" => "zussar#index"
   get "zussar/users/:user_id" => "zussar#users"
   get "zussar/events/:event_id" => "zussar#events"
   get "qiita/tags"

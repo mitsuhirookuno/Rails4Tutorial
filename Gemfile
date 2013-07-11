@@ -86,3 +86,4 @@ gem "twitter-bootstrap-rails"
 gem 'qiita'
 gem 'connpass'
 gem 'zusaar'
+gem 'kaminari'
