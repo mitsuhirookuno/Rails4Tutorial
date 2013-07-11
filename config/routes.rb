@@ -4,7 +4,7 @@ Rails4Sandbox::Application.routes.draw do
   devise_for :users
   get "zussar/index"
   get "zussar/users/:user_id" => "zussar#users"
-  get "zussar/index/:event_id" => "zussar#index"
+  get "zussar/events/:event_id" => "zussar#events"
   get "qiita/tags"
   get "qiita/users"
   get "qiita/index"

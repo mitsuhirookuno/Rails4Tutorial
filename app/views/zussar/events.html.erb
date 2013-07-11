@@ -1,0 +1,29 @@
+<%= link_to( @event.title, @event.event_url ) %><br/>
+
+<%= @event.accepted %>/<%= @event.limit %><br/>
+
+<table border=1>
+  <tr>
+    <th>参加順</th>
+    <th>参加者</th>
+    <th>ソーシャル</th>
+    <th>出席/欠席</th>
+  </tr>
+<% @users.each_with_index{ |user,index| %>
+  <tr>
+    <td><%=(index+1) %></td>
+    <td><%=link_to( user.nickname, action: 'users', user_id: user.user_id  ) %></td>
+    <td>
+     <% if user.profile_url.match(%r!^http://twitter\.com!)
+          sns_type = 'twiiter'
+        elsif  user.profile_url.match(%r!^http://www\.facebook\.com!)
+          sns_type = 'facebook'
+        else
+          sns_type = 'mixi'
+        end %>
+     <%=link_to( sns_type, user.profile_url ) %>
+    </td>
+    <td><%=(user.status=='1')? '出席':'キャンセル待ち' %></td>
+  </tr>
+<% } %>
+</table>

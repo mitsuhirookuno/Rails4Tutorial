@@ -21,7 +21,7 @@
   <tr>
    <td><%= index+1 %></td>
    <td>
-     <%= link_to( event.title, action: 'index', event_id: event.event_id ) %>
+     <%= link_to( event.title, action: 'events', event_id: event.event_id ) %>
    </td>
    <td>
      <% if @owner_events.find{|e| e.event_id == event.event_id } %>
