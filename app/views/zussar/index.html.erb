@@ -6,10 +6,11 @@
   </tr>
 <% @events.each_with_index{|event,index| %>
   <tr>
-    <td><%=(index+1) %></td>
+    <td><%= @offset + index %></td>
     <td><%= link_to( event.title[0..40], action: 'events', event_id: event.event_id ) %></td>
     <td><%= Time.parse(event.started_at).strftime('%Y/%m/%d') if event.started_at.presence %></td>
   </tr>
 <% } %>
 </table>
-<%= link_to_if( (@offset-1)>0, 'Prev', action: 'index', page: (@offset-1) ) %> / <%= link_to( 'Next', action: 'index', page: (@offset+1) ) %>
+
+<%= link_to_if( (@page)>1, 'Prev', action: 'index', page: @page-1 ) %> / <%= link_to( 'Next', action: 'index', page: @page+1 ) %>

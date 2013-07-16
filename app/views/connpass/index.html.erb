@@ -1,3 +1,18 @@
-<%= link_to( @event['title'], @event['event_url'] ) %><br/>
-<%= @event['accepted'] %><%=(@event['waiting']>0)? "(+#{@event['waiting']})":'' %>/<%= @event['limit'] %> <br/>
-<%= link_to( @event['owner_display_name'], action: 'users', nickname: @event['owner_nickname'] ) %><br/>
+<table border=1>
+  <tr>
+    <th></th>
+    <th>タイトル</th>
+    <th>開催日</th>
+    <th>オーナー</th>
+  </tr>
+<% @events.each_with_index{|event,index| %>
+  <tr>
+    <td><%= @offset + index %></td>
+    <td><%= link_to( event['title'], action: 'events', event_id: event['event_id'] ) %></td>
+    <td><%= Time.parse(event['started_at']).strftime('%Y/%m/%d') %></td>
+    <td><%= link_to( event['owner_display_name'], action: 'users', nickname: event['owner_nickname'] ) %></td>
+  </tr>
+<% } %>
+</table>
+
+<%= link_to_if( (@page)>1, 'Prev', action: 'index', page: @page-1 ) %> / <%= link_to( 'Next', action: 'index', page: @page+1 ) %>

@@ -1,16 +1,22 @@
 # -*- encoding: utf-8 -*-
 
+#
+# ZussarAPIを利用する：コントローラー
+#
+# @see http://www.zusaar.com/doc/api.html ZussarAPI
+#
 class ZussarController < ApplicationController
   
   def index
     @page_size = 10
+    @offset = 1
     if params.key?(:page) == false
-      @offset = 1
+      @page = 1
     else
-      @offset = Integer(params.fetch(:page))
+      @page = Integer(params.fetch(:page))
     end
-    
-    @parameters = { count: @page_size, start: (@offset * @page_size) }
+    @offset += ((@page - 1 ) * @page_size )
+    @parameters = { count: @page_size, start: @offset }
     search_results_events = Zusaar.search_events(@parameters)
     @events = search_results_events.events
   end
