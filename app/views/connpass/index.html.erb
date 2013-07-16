@@ -15,4 +15,7 @@
 <% } %>
 </table>
 
-<%= link_to_if( (@page)>1, 'Prev', action: 'index', page: @page-1 ) %> / <%= link_to( 'Next', action: 'index', page: @page+1 ) %>
+<ul class="pager">
+  <li><%= link_to_if( (@page)>1, 'Prev', action: 'index', page: @page-1 ) %></li>
+  <li><%= link_to( 'Next', action: 'index', page: @page+1 ) %></li>
+</ul>

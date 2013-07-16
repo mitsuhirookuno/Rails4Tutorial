@@ -1,3 +1,12 @@
-<%= link_to( @event['title'], @event['event_url'] ) %><br/>
-<%= @event['accepted'] %><%=(@event['waiting']>0)? "(+#{@event['waiting']})":'' %>/<%= @event['limit'] %> <br/>
-<%= link_to( @event['owner_display_name'], action: 'users', nickname: @event['owner_nickname'] ) %><br/>
+<h3><%= link_to( @event['title'], @event['event_url'] ) %></h3>
+<%=@event['catch'] %>
+<h4><%= @event['accepted'] %><%=(@event['waiting']>0)? "(+#{@event['waiting']})":'' %>/<%= @event['limit'] %></h4>
+<%= link_to( @event['owner_display_name'], action: 'users', nickname: @event['owner_nickname'] ) %>
+<hr/>
+
+<button class="btn btn-info btn-small" data-toggle="collapse" data-target="#demo">
+  イベント詳細
+</button>
+<div id="demo" class="collapse out">
+<%=raw @event['description'] %>
+</div>
