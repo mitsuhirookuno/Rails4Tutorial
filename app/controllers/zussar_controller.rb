@@ -3,11 +3,16 @@
 class ZussarController < ApplicationController
   
   def index
-    @parameters = Hash.new
-    @parameters[:start] = (params.fetch(:page).to_i-1) * 10 if params.key?(:page)
+    @page_size = 10
+    if params.key?(:page) == false
+      @offset = 1
+    else
+      @offset = Integer(params.fetch(:page))
+    end
+    
+    @parameters = { count: @page_size, start: (@offset * @page_size) }
     search_results_events = Zusaar.search_events(@parameters)
     @events = search_results_events.events
-    @comments = Kaminari.paginate_array( Array.new(2400) ).page(params[:page]).per(10)
   end
   
   def events

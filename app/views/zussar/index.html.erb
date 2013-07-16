@@ -12,5 +12,4 @@
   </tr>
 <% } %>
 </table>
-
-<%= paginate @comments %>
+<%= link_to_if( (@offset-1)>0, 'Prev', action: 'index', page: (@offset-1) ) %> / <%= link_to( 'Next', action: 'index', page: (@offset+1) ) %>
