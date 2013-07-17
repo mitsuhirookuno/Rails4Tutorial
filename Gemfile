@@ -53,10 +53,11 @@ group :test do
   # gem 'spork'
   # gem 'webrat'
   # gem 'flog'
-  # gem 'flay'
-  # gem 'roodi1.9'
+  gem 'flay'
+  gem 'roodi1.9'
   # gem 'reek', '~> 1.2.6'
   # gem 'brakeman'
+  gem 'rails_best_practices'
   gem 'mocha', :require => false
 end
 
