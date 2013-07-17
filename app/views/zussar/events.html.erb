@@ -1,7 +1,15 @@
-<%= link_to( @event.title, @event.event_url ) %><br/>
+<h3><%= link_to( @event.title, @event.event_url ) %></h3>
+<h4><%= Time.parse(@event.started_at).strftime('%Y/%m/%d') if @event.started_at.presence %></h4>
+<h4><%= @event.accepted %>/<%= @event.limit %></h4>
 
-<%= @event.accepted %>/<%= @event.limit %><br/>
+<ul class="nav nav-tabs">
+  <li><a href="#home" data-toggle="tab">詳細</a></li>
+  <li><a href="#profile" data-toggle="tab">参加者</a></li>
+</ul>
 
+<div class="tab-content">
+  <div class="tab-pane active" id="home"><%=raw @event.description %></div>
+  <div class="tab-pane" id="profile">
 <table border=1>
   <tr>
     <th>参加順</th>
@@ -27,3 +35,5 @@
   </tr>
 <% } %>
 </table>
+</div>
+</div>
