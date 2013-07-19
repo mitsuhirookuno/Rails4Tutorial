@@ -17,7 +17,6 @@ function google_map_initialize() {
       title:    'ココ！'
   });
 }
-window.onload = google_map_initialize ;
 </script>
 
 <h3><%= link_to( @event.title, @event.event_url ) %></h3>
@@ -33,7 +32,7 @@ window.onload = google_map_initialize ;
 <ul class="nav nav-tabs">
   <li class="active"><a href="#home" data-toggle="tab">詳細</a></li>
   <li><a href="#profile" data-toggle="tab">参加者</a></li>
-  <li><a href="#address" data-toggle="tab">場所</a></li>
+  <li><a href="#address" data-toggle="tab" onClick="google_map_initialize();">場所</a></li>
 </ul>
 
 
