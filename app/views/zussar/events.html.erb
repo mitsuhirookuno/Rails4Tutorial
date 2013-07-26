@@ -19,7 +19,7 @@ function google_map_initialize() {
   };
   var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
   
-  var image = '/images/pin.png';
+  var image = '/images/pin.png' ;
   var myLatLng = new google.maps.LatLng(<%=@event.lat %>,<%=@event.lon %>);
   var beachMarker = new google.maps.Marker({
       position: myLatLng,
@@ -38,7 +38,7 @@ function google_map_initialize() {
   <%= Time.parse(@event.ended_at).strftime('%Y/%m/%d %H:%M:%S') if @event.ended_at.presence %>
 </h4>
 
-<h4><%= @event.accepted %>/<%= @event.limit %></h4>
+<h4><%= @event.accepted %><%= (@event.waiting>0)? "(#{@event.waiting})":'' %>/<%= @event.limit %></h4>
 
 <ul class="nav nav-tabs">
   <li class="active"><a href="#home" data-toggle="tab">詳細</a></li>
@@ -49,38 +49,12 @@ function google_map_initialize() {
 <div class="tab-content">
   <div class="tab-pane active" id="home"><%=raw @event.description %></div>
   <div class="tab-pane" id="profile">
-<table border=1>
-  <tr>
-    <th>参加順</th>
-    <th>参加者</th>
-    <th>ソーシャル</th>
-    <th>出席/欠席</th>
-  </tr>
-<% @users.each_with_index{ |user,index| %>
-  <tr>
-    <td><%=(index+1) %></td>
-    <td>
-      <%= '[Owner]' if @event.owner_id == user.user_id %>
-      <%=link_to( user.nickname, action: 'users', user_id: user.user_id  ) %>
-    </td>
-    <td>
-     <% if user.profile_url.match(%r!^http://twitter\.com!)
-          sns_type = 'twiiter'
-        elsif  user.profile_url.match(%r!^http://www\.facebook\.com!)
-          sns_type = 'facebook'
-        else
-          sns_type = 'mixi'
-        end %>
-     <%=link_to( sns_type, user.profile_url ) %>
-    </td>
-    <td><%=(user.status=='1')? '出席':'キャンセル待ち' %></td>
-  </tr>
-<% } %>
-</table>
+    <%=render( partial: 'events_tab_members' ) %>
   </div>
   <div class="tab-pane" id="address">
     <h3><%= @event.address %></h3>
     <h3><%= @event.place %></h3>
     <div id="map_canvas" style="width:500px; height:300px"></div>
   </div>
+  
 </div>

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 #
-# ZussarAPI‚ğ—˜—p‚·‚éFƒRƒ“ƒgƒ[ƒ‰[
+# ZussarAPIã‚’åˆ©ç”¨ã™ã‚‹ï¼šã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼
 #
 # @see http://www.zusaar.com/doc/api.html ZussarAPI
 #
