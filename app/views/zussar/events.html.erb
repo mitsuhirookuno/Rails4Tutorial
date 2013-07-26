@@ -1,4 +1,15 @@
 <script type="text/javascript">
+google_map_loaded = false ;
+function load_only_once() {
+  if( google_map_loaded == true ) {
+    return false ;
+  }
+  else {
+    google_map_initialize();
+    google_map_loaded = true ;
+    return true ;
+  }
+}
 function google_map_initialize() {
   var latlng = new google.maps.LatLng(<%=@event.lat %>,<%=@event.lon %>);
   var opts = {
@@ -8,7 +19,7 @@ function google_map_initialize() {
   };
   var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
   
-  var image = '/images/don_icon.png';
+  var image = '/images/pin.png';
   var myLatLng = new google.maps.LatLng(<%=@event.lat %>,<%=@event.lon %>);
   var beachMarker = new google.maps.Marker({
       position: myLatLng,
@@ -32,9 +43,8 @@ function google_map_initialize() {
 <ul class="nav nav-tabs">
   <li class="active"><a href="#home" data-toggle="tab">詳細</a></li>
   <li><a href="#profile" data-toggle="tab">参加者</a></li>
-  <li><a href="#address" data-toggle="tab" onClick="google_map_initialize();">場所</a></li>
+  <li><a href="#address" data-toggle="tab" onClick="load_only_once();">場所</a></li>
 </ul>
-
 
 <div class="tab-content">
   <div class="tab-pane active" id="home"><%=raw @event.description %></div>
