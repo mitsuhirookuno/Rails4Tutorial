@@ -3,7 +3,7 @@
     <th></th>
     <th>タイトル</th>
     <th>開催日</th>
-    <th></th>
+    <th>popup</th>
   </tr>
 <% @events.each_with_index{|event,index| %>
   <tr>
@@ -12,7 +12,8 @@
                      { action: 'events', event_id: event.event_id },
                      { "data-toggle" => "tooltip", "title" => event.title + ':' + event.catch } ) %></td>
     <td><%= Time.parse(event.started_at).strftime('%Y/%m/%d') if event.started_at.presence %></td>
-    <td><a href="#" role="button" rel="popover" class="btn popover-test" title="<%=event.title %>" data-content="<%=event.catch %>" data-placement="left">Hint</a></td>
+    <td><a href="#" role="button" rel="popover" class="btn popover-test"
+           title="<%=event.title %>" data-content="<%=event.catch %>" data-placement="left">Popup</a></td>
   </tr>
 <% } %>
 </table>
