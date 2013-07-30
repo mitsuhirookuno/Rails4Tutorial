@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -34,12 +36,13 @@ class ApplicationController < ActionController::Base
   #end
   
   private if Rails.env != "development"
-  
+
+
   def get_connection( domain )
     connection = Faraday::Connection.new( :url => domain ) do |builder|
-      builder.use Faraday::Request::UrlEncoded  # リクエストパラメータを URL エンコードする
-      # builder.use Faraday::Response::Logger     # リクエストを標準出力に出力する
-      builder.use Faraday::Adapter::NetHttp     # Net/HTTP をアダプターに使う
+      builder.use Faraday::Request::UrlEncoded
+      # builder.use Faraday::Response::Logger
+      builder.use Faraday::Adapter::NetHttp
     end
     connection
   end
