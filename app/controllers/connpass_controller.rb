@@ -4,11 +4,13 @@
 # ConnpassAPIを利用する：コントローラー
 #
 # @see http://connpass.com/about/api/ ConnpassAPIのリファレンス
+# @see http://rubygems.org/gems/connpass ConnpassAPIのGem
 #
 class ConnpassController < ApplicationController
 
 #
 # 一覧表示
+#   イベントの一覧を表示します
 #
 def index
     @page_size = 10
@@ -26,6 +28,7 @@ def index
 
   #
   # イベント表示
+  #   イベントの詳細を表示します
   #
   def events
     search_result = Connpass.event_search(params)
@@ -34,6 +37,7 @@ def index
 
   #
   # ユーザー表示
+  #   ユーザーの詳細を表示します
   #
   def users
     search_result = Connpass.event_search(params)
