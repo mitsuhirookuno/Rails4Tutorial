@@ -13,6 +13,7 @@ class QiitaController < ApplicationController
   #   記事の一覧を表示します
   #
   def index
+    # ToDo : memcachedで負荷を軽減したい
     @qiita_timelines = Qiita.user_items
   end
 
@@ -39,6 +40,7 @@ class QiitaController < ApplicationController
   #   ユーザーで一覧を表示します
   # @return [Faraday::Connection] コネクション
   def get_qiita_connection
+    # FIXME : リトライ処理の実装
     get_connection( "https://qiita.com/" )
   end
   
