@@ -1,4 +1,7 @@
 Rails4Sandbox::Application.routes.draw do
+
+  # resources :sessions
+
   get "connpass/index"
   get "connpass/index/:page" => "connpass#index"
   get "connpass/events/:event_id" => "connpass#events"

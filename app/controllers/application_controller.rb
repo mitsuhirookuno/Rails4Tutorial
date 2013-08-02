@@ -37,7 +37,6 @@ class ApplicationController < ActionController::Base
   
   private if Rails.env != "development"
 
-
   def get_connection( domain )
     connection = Faraday::Connection.new( :url => domain ) do |builder|
       builder.use Faraday::Request::UrlEncoded

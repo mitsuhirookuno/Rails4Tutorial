@@ -1,10 +1,10 @@
-<table border='1'>
+<table class='table table-striped table-bordered table-condensed'>
 <% @qiita_timelines.each_with_index{ | timeline, index | %>
   <tr>
     <td>
       <% timeline['tags'].each_with_index{ | tag, index | %>
         <% if tag['icon_url'] == '/icons/medium/missing.png' %>
-          <%= image_tag( 'http://qiita.com/icons/medium/missing.png', :size => '32x32', :alt => tag['name'], :title => tag['name'] ) %>
+          <%= image_tag( '/images/no_image.png', :size => '32x32', :alt => tag['name'], :title => tag['name'] ) %>
         <% else %>
           <%= link_to( image_tag( tag['icon_url'], :size => '32x32', :alt => tag['name'], :title => tag['name'] ), action: 'tags', tag: tag['name'] ) %>
         <% end %>
