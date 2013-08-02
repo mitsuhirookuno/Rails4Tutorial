@@ -1,17 +1,19 @@
-<table class='table table-striped table-bordered table-condensed'>
+<table class='table table-striped'>
 <% @qiita_timelines.each_with_index{ | timeline, index | %>
   <tr>
+    <td><%=link_to( image_tag( timeline['user']['profile_image_url'], size: '32x32', alt: timeline['user']['url_name'], title: timeline['user']['url_name']  ), action: 'users', user: timeline['user']['url_name'] ) %></td>
+    <td><%=link_to timeline['title'], timeline['url'] %></td>
     <td>
       <% timeline['tags'].each_with_index{ | tag, index | %>
+        <span class='qiita_category_img'>
         <% if tag['icon_url'] == '/icons/medium/missing.png' %>
-          <%= image_tag( 'http://qiita.com/icons/medium/missing.png', :size => '32x32', :alt => tag['name'], :title => tag['name'] ) %>
+          <%= image_tag( '/images/no_image.png', :hight => '32', :alt => tag['name'], :title => tag['name'] ) %>
         <% else %>
-          <%= link_to( image_tag( tag['icon_url'], :size => '32x32', :alt => tag['name'], :title => tag['name'] ), action: 'tags', tag: tag['name'] ) %>
+          <%= link_to( image_tag( tag['icon_url'], :hight => '32', :alt => tag['name'], :title => tag['name'] ), action: 'tags', tag: tag['name'] ) %>
         <% end %>
+        </span>
       <% } %>
     </td>
-    <td><%=link_to timeline['title'], timeline['url'] %></td>
-    <td><%=link_to( image_tag( timeline['user']['profile_image_url'], size: '32x32', alt: timeline['user']['url_name'], title: timeline['user']['url_name']  ), action: 'users', user: timeline['user']['url_name'] ) %></td>
   </tr>
 <% } %>
 </table>
