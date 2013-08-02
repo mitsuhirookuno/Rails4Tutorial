@@ -1,16 +1,19 @@
-<table border=1>
+<table class='table table-striped table-bordered table-condensed'>
   <tr>
     <th></th>
     <th>タイトル</th>
     <th>開催日</th>
     <th>オーナー</th>
+    <th>Popup</th>
   </tr>
 <% @events.each_with_index{|event,index| %>
   <tr>
     <td><%= @offset + index %></td>
-    <td><%= link_to( event['title'], action: 'events', event_id: event['event_id'] ) %></td>
+    <td><%= link_to( event['title'][0..40], action: 'events', event_id: event['event_id'] ) %></td>
     <td><%= Time.parse(event['started_at']).strftime('%Y/%m/%d') %></td>
     <td><%= link_to( event['owner_display_name'], action: 'users', nickname: event['owner_nickname'] ) %></td>
+    <td><a href="#" role="button" rel="popover" class="btn popover-test"
+           title="<%=event['title'] %>" data-content="<%=event['catch'] %>" data-placement="left">Popup</a></td>
   </tr>
 <% } %>
 </table>
