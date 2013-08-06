@@ -1,0 +1,25 @@
+# Provider Page
+twitter_page: "https://twitter.com/"
+facebook_page: "https://www.facebook.com/"
+github_page: "https://github.com/"
+
+# アプリケーション名
+app_name: "event.info"
+
+# プログラマTwitterID
+programmer_twitter_id: "bugslife"
+
+# デザイナーTwitterID
+designer_twitter_id: "bugslife"
+
+# 曜日
+weekday: ["日", "月", "火", "水", "木", "金", "土"]
+
+# Twitter OAuth Local Setting
+twitter_key:    ENV['TWITTER_KEY']
+twitter_secret: ENV['TWITTER_SECRET']
+
+# Facebook OAuth Setting
+facebook_app_id:     ENV['FACEBOOK_APP_ID']
+facebook_app_secret: ENV['FACEBOOK_APP_SECRET']
+
