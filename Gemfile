@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -79,8 +80,11 @@ end
 gem 'protected_attributes'
 ## http://qiita.com/tarhashi/items/3f8a99d3a1fcb54eba63
 gem 'faraday'
-### https://github.com/plataformatec/devise
-gem 'devise'
+#### https://github.com/plataformatec/devise
+#gem 'devise'
+
+### http://qiita.com/shu_0115/items/6f5f0c210e9999da66be
+gem 'minimum-omniauth-scaffold'
 
 ### http://d.hatena.ne.jp/xlis/20130317/1363529264
 ### http://ppworks.hatenablog.jp/entry/2012/02/19/033644

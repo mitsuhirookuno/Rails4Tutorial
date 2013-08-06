@@ -1,12 +1,16 @@
 Rails4Sandbox::Application.routes.draw do
+  # root to: 'top#index'
 
-  # resources :sessions
+  # For OmniAuth
+  get "/auth/:provider/callback" => "sessions#callback"
+  get "/auth/failure"            => "sessions#failure"
+  get "/logout"                  => "sessions#destroy", as: :logout
+
 
   get "connpass/index"
   get "connpass/index/:page" => "connpass#index"
   get "connpass/events/:event_id" => "connpass#events"
   get "connpass/users/:nickname" => "connpass#users"
-  devise_for :users
   get "zussar/index"
   get "zussar/index/:page" => "zussar#index"
   get "zussar/users/:user_id" => "zussar#users"
