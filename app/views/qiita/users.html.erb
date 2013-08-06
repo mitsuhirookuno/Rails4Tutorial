@@ -1,7 +1,8 @@
+<% qiita_timeline = @qiita_timelines.first %>
+<h2><span class='user_image'><%= image_tag(qiita_timeline['user']['profile_image_url']) %></span><%=  qiita_timeline['user']['url_name'] %></h2>
 <table class='table table-striped'>
 <% @qiita_timelines.each_with_index{ | timeline, index | %>
   <tr>
-    <td><%=link_to( image_tag( timeline['user']['profile_image_url'], size: '32x32', alt: timeline['user']['url_name'], title: timeline['user']['url_name']  ), action: 'users', user: timeline['user']['url_name'] ) %></td>
     <td><%=link_to timeline['title'], timeline['url'] %></td>
     <td>
       <% timeline['tags'].each_with_index{ | tag, index | %>
