@@ -8,6 +8,8 @@
 #
 class ZussarController < ApplicationController
 
+  skip_before_filter :authenticate
+
   #
   # 一覧表示
   #   イベントの一覧を表示します

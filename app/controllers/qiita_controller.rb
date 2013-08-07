@@ -8,6 +8,8 @@
 #
 class QiitaController < ApplicationController
 
+  skip_before_filter :authenticate
+
   #
   # 一覧表示
   #   記事の一覧を表示します
