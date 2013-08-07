@@ -4,13 +4,13 @@ facebook_page: "https://www.facebook.com/"
 github_page: "https://github.com/"
 
 # アプリケーション名
-app_name: "event.info"
+app_name: "TechSearch Pan-ya"
 
 # プログラマTwitterID
 programmer_twitter_id: "bugslife"
 
 # デザイナーTwitterID
-designer_twitter_id: "bugslife"
+designer_twitter_id: "umekumi"
 
 # 曜日
 weekday: ["日", "月", "火", "水", "木", "金", "土"]
