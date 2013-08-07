@@ -16,10 +16,14 @@ designer_twitter_id: "bugslife"
 weekday: ["日", "月", "火", "水", "木", "金", "土"]
 
 # Twitter OAuth Local Setting
-twitter_key:    ENV['TWITTER_KEY']
-twitter_secret: ENV['TWITTER_SECRET']
+twitter_key:    <%=ENV['TWITTER_KEY'] %>
+twitter_secret: <%=ENV['TWITTER_SECRET'] %>
 
-# Facebook OAuth Setting
-facebook_app_id:     ENV['FACEBOOK_APP_ID']
-facebook_app_secret: ENV['FACEBOOK_APP_SECRET']
+# # Facebook OAuth Setting
+facebook_app_id:     <%=ENV['FACEBOOK_APP_ID'] %>
+facebook_app_secret: <%=ENV['FACEBOOK_APP_SECRET'] %>
+
+# # Github OAuth Setting
+github_client_id: <%=ENV['GITHUB_CLIENT_ID'] %>
+github_secret:    <%=ENV['GITHUB_SECRET'] %>
 
