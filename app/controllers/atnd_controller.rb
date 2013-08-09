@@ -1,5 +1,7 @@
 class AtndController < ApplicationController
 
+  skip_before_filter :authenticate
+
   def index
     @page_size = 10
     @offset = 1

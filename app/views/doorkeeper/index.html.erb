@@ -1,2 +1,24 @@
-<h1>Doorkeeper#index</h1>
-<p>Find me in app/views/doorkeeper/index.html.erb</p>
+<table class='table table-striped table-bordered table-condensed'>
+  <tr>
+    <th></th>
+    <th>タイトル</th>
+    <th>開催日</th>
+    <th>オーナー</th>
+    <th>Popup</th>
+  </tr>
+  <% @events.each_with_index{|event,index| event = event['event']%>
+      <tr>
+        <td><%= ((@page-1) * @page_size) + (index+1) %></td>
+        <td><%= link_to( event['title'][0..40], action: 'events', event_id: event['id'] ) %></td>
+        <td><%= Time.parse(event['starts_at']).strftime('%Y/%m/%d') %></td>
+        <td><%= link_to( event['group']['name'], action: 'users', owner_id: event['group']['id'] ) %></td>
+        <td><a href="#" role="button" rel="popover" class="btn popover-test"
+               title="<%=event['title'] %>" data-content="<%=event['title'] %>" data-placement="left">Popup</a></td>
+      </tr>
+  <% } %>
+</table>
+
+<ul class="pager">
+  <li><%= link_to_if( (@page)>1, 'Prev', action: 'index', page: @page-1 ) %></li>
+  <li><%= link_to( 'Next', action: 'index', page: @page+1 ) %></li>
+</ul>
