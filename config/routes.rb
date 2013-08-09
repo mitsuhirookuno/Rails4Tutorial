@@ -1,4 +1,14 @@
 Rails4Sandbox::Application.routes.draw do
+
+  get "doorkeeper/index"
+  get "doorkeeper/events"
+  get "doorkeeper/users"
+  # For Atnd
+  get "atnd/index"
+  get "atnd/index/:page" => "atnd#index"
+  get "atnd/events/:event_id" => "atnd#events"
+  get "atnd/users/:owner_id" => "atnd#users"
+
   # root to: 'top#index'
 
   # For OmniAuth
@@ -6,20 +16,25 @@ Rails4Sandbox::Application.routes.draw do
   get "/auth/failure"            => "sessions#failure"
   get "/logout"                  => "sessions#destroy", as: :logout
 
-
+  # For Connpass
   get "connpass/index"
   get "connpass/index/:page" => "connpass#index"
   get "connpass/events/:event_id" => "connpass#events"
   get "connpass/users/:nickname" => "connpass#users"
+
+  # For Zussar
   get "zussar/index"
   get "zussar/index/:page" => "zussar#index"
   get "zussar/users/:user_id" => "zussar#users"
   get "zussar/events/:event_id" => "zussar#events"
+
+  # For Qiita
   get "qiita/tags"
   get "qiita/users"
   get "qiita/index"
   get "qiita/tags/:tag" => "qiita#tags"
   get "qiita/users/:user" => "qiita#users"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

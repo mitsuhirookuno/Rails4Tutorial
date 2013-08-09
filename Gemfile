@@ -94,5 +94,11 @@ gem "twitter-bootstrap-rails"
 gem 'qiita'
 gem 'connpass'
 gem 'zusaar'
+gem 'atndr'
+# カウントを指定すると、パースエラーが発生する
+#gem 'atnd4r'
+# ライブラリのバージョンが競合して使えなかった
+# gem 'doorkeeper'
+# partake
 gem 'kaminari'
 

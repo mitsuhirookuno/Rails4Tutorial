@@ -26,6 +26,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.0)
+    atndr (0.0.2)
     atomic (1.1.12)
     awesome_print (1.1.0)
     bcrypt-ruby (3.0.1)
@@ -252,6 +253,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  atndr
   bcrypt-ruby (~> 3.0.0)
   better_errors
   binding_of_caller

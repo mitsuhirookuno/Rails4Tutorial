@@ -46,22 +46,33 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#"><%=image_tag( '/images/pannya_logo.png', :size => '125x75' ) %></a>
-          <% if signed_in? %>
-              <%# ログイン済み %>
-              <%= render partial: '/layouts/user_icon', locals: { user: current_user, size: "18x18", klass: "margin_minus2" } %>
-              <%= link_to( "Top", root_path ) %>
-              <%= link_to( "Logout", logout_path ) %>
-          <% else %>
-              <%# 未ログイン %>
-              Login:
-              <%= link_to "Twitter", "/auth/twitter" %>
-              <%= link_to "Facebook", "/auth/facebook" %>
-              <%= link_to "GitHub", "/auth/gitHub" %>
-          <% end %>
+          <%=Settings.app_name %>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li>
-              </li>
+              <% if signed_in? %>
+                  <%# ログイン済み %>
+                  <li>
+                    <%= render partial: '/layouts/user_icon', locals: { user: current_user, size: "18x18", klass: "margin_minus2" } %>
+                  </li>
+                  <li>
+                    <%= link_to( "Top", root_path ) %>
+                  </li>
+                  <li>
+                    <%= link_to( "Logout", logout_path ) %>
+                  </li>
+              <% else %>
+                  <%# 未ログイン %>
+                  Login:
+                  <li>
+                    <%= link_to "Twitter", "/auth/twitter" %>
+                  </li>
+                  <li>
+                    <%= link_to "Facebook", "/auth/facebook" %>
+                  </li>
+                  <li>
+                    <%= link_to "GitHub", "/auth/gitHub" %>
+                  </li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -78,6 +89,8 @@
               <li><%= link_to image_tag( '/images/qiita_icon.ico', :size => '16x16' ) + "　Qiita-API", { controller: '/qiita', action: 'index' }  %></li>
               <li><%= link_to image_tag( '/images/zusaar_icon.ico', :size => '16x16' ) + "　Zusaar-API", { controller: '/zussar', action: 'index', page: 1 }  %></li>
               <li><%= link_to image_tag( '/images/connpass_icon.ico', :size => '16x16' ) + "　Connpass-API", { controller: '/connpass', action: 'index', page: 1 }  %></li>
+              <li><%= link_to image_tag( '/images/pin.png', :size => '16x16' ) + "　Atnd-API", { controller: '/atnd', action: 'index', page: 1 }  %></li>
+              <li><%= link_to image_tag( '/images/doorkeeper_icon.png', :size => '16x16' ) + "　Doorkeeper-API", { controller: '/doorkeeper', action: 'index', page: 1 }  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

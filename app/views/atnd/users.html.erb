@@ -1,0 +1,16 @@
+<h3><%=params[:nickname] %></h3>
+
+<table border=1>
+  <tr>
+    <th></th>
+    <th>主催者</th>
+    <th>イベント</th>
+  </tr>
+  <% @events.each_with_index{ |event,index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= (event['owner_nickname'] == params[:owner_nickname])? '◎':'' %></td>
+        <td><%= link_to( event['title'], event['event_url'] ) %></td>
+      </tr>
+  <% } %>
+</table>

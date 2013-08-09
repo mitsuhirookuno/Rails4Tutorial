@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    google_map_loaded = false ;
+    function load_only_once() {
+        if( google_map_loaded == true ) {
+            return false ;
+        }
+        else {
+            google_map_initialize();
+            google_map_loaded = true ;
+            return true ;
+        }
+    }
+    function google_map_initialize() {
+        var latlng = new google.maps.LatLng(<%=@event['lat']%>,<%=@event['lon']%>);
+        var opts = {
+            zoom: 15,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
+
+        var image = '/images/pin.png' ;
+        var myLatLng = new google.maps.LatLng(<%=@event['lat']%>,<%=@event['lon']%>);
+        var beachMarker = new google.maps.Marker({
+            position: myLatLng,
+            map:      map,
+            icon:     image,
+            title:    'ココ！'
+        });
+    }
+</script>
+
+<h3><%= link_to( @event['title'], @event['event_url'] ) %></h3>
+<%=@event['catch'] %>
+<h4><%= @event['accepted'] %><%=(@event['waiting']>0)? "(+#{@event['waiting']})":'' %>/<%= @event['limit'] %></h4>
+<%= link_to( @event['owner_nickname'], action: 'users', owner_id: @event['owner_id'] ) %>
+<hr/>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#home" data-toggle="tab">詳細</a></li>
+  <li><a href="#address" data-toggle="tab" onClick="load_only_once();">場所</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+    <%=raw @event['description'] %>
+  </div>
+  <div class="tab-pane" id="address">
+    <div id="map_canvas" style="width:500px; height:300px"></div>
+  </div>
+</div>
