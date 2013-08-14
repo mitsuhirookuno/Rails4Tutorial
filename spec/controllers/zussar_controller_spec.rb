@@ -16,4 +16,11 @@ describe ZussarController do
     end
   end
 
+  describe "GET 'events'" do
+    it "returns http success" do
+      get 'events', event_id: '991003'
+      response.should be_success
+    end
+  end
+
 end
