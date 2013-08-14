@@ -1,3 +1,12 @@
+# -*- encoding: utf-8 -*-
+
+#
+# AtndAPIを利用する：コントローラー
+#
+# @see http://api.atnd.org/ AtndAPI
+# @see http://rubygems.org/gems/atndr AtndAPIのGem
+#
+
 class AtndController < ApplicationController
 
   skip_before_filter :authenticate

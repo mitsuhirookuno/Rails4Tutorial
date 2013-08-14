@@ -11,7 +11,7 @@
         <td><%= ((@page-1) * @page_size) + (index+1) %></td>
         <td><%= link_to( event['title'][0..40], action: 'events', event_id: event['id'] ) %></td>
         <td><%= Time.parse(event['starts_at']).strftime('%Y/%m/%d') %></td>
-        <td><%= link_to( event['group']['name'], action: 'users', owner_id: event['group']['id'] ) %></td>
+        <td><%= link_to( event['group']['name'], action: 'users', group_id: event['group']['id'] ) %></td>
         <td><a href="#" role="button" rel="popover" class="btn popover-test"
                title="<%=event['title'] %>" data-content="<%=event['title'] %>" data-placement="left">Popup</a></td>
       </tr>

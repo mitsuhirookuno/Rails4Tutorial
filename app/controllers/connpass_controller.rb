@@ -14,7 +14,7 @@ class ConnpassController < ApplicationController
 # 一覧表示
 #   イベントの一覧を表示します
 #
-def index
+  def index
     @page_size = 10
     @offset = 1
     if params.key?(:page) == false

@@ -1,3 +1,11 @@
+# -*- encoding: utf-8 -*-
+
+#
+# DoorKeeperAPIを利用する：コントローラー
+#
+# @see http://www.doorkeeperhq.com/developer/api DoorKeeperAPI
+#
+
 class DoorkeeperController < ApplicationController
 
   skip_before_filter :authenticate
@@ -15,9 +23,14 @@ class DoorkeeperController < ApplicationController
   end
 
   def events
+    # aa = ActiveSupport::JSON.decode(get_doorkeeper_connection.get("/events?since=2013-09-03T10:20:00Z&until=2013-09-03T10:20:00Z").body)
+    # イベントを直接IDで指定することはできない
+    @events = ActiveSupport::JSON.decode(get_doorkeeper_connection.get("/events?id=#{params['event_id']}").body)
+    binding.pry
   end
 
   def users
+    @events = ActiveSupport::JSON.decode(get_doorkeeper_connection.get("/groups/#{params['group_id']}/events").body)
   end
 
   private if Rails.env != "development"
