@@ -11,14 +11,14 @@ describe DoorkeeperController do
 
   describe "GET 'events'" do
     it "returns http success" do
-      get 'events'
+      get 'events', event_id: "806"
       response.should be_success
     end
   end
 
   describe "GET 'users'" do
     it "returns http success" do
-      get 'users'
+      get 'users', group_id: "1246"
       response.should be_success
     end
   end
