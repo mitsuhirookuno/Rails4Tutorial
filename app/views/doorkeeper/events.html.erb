@@ -1,4 +1,49 @@
-<h1>Doorkeeper#events</h1>
-<p>Find me in app/views/doorkeeper/events.html.erb</p>
+<script type="text/javascript">
+    google_map_loaded = false ;
+    function load_only_once() {
+        if( google_map_loaded == true ) {
+            return false ;
+        }
+        else {
+            google_map_initialize();
+            google_map_loaded = true ;
+            return true ;
+        }
+    }
+    function google_map_initialize() {
+        var latlng = new google.maps.LatLng(<%=@event['lat']%>,<%=@event['long']%>);
+        var opts = {
+            zoom: 15,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
 
-<%=@events.inspect %>
+        var image = '/images/pin.png' ;
+        var myLatLng = new google.maps.LatLng(<%=@event['lat']%>,<%=@event['long']%>);
+        var beachMarker = new google.maps.Marker({
+            position: myLatLng,
+            map:      map,
+            icon:     image,
+            title:    'ココ！'
+        });
+    }
+</script>
+
+<h3><%= link_to( @event['title'], @event['public_url'] ) %></h3>
+<h4><%=@event['starts_at'] %>〜<%=@event['ends_at'] %></h4>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#home" data-toggle="tab">詳細</a></li>
+  <li><a href="#address" data-toggle="tab" onClick="load_only_once();">場所</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+    <%=raw @event['description'] %>
+  </div>
+  <div class="tab-pane" id="address">
+    <div id="map_canvas" style="width:500px; height:300px"></div>
+  </div>
+</div>
+
+

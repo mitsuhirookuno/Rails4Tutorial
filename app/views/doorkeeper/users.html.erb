@@ -9,7 +9,7 @@
   <% @events.each_with_index{|event,index| event = event['event']%>
       <tr>
         <td></td>
-        <td><%= link_to( event['title'][0..40], action: 'events', event_id: event['id'] ) %></td>
+        <td><%= link_to( event['title'][0..40], action: 'events', event_id: event['id'], base64_title: Base64.encode64(event['title']) ) %></td>
         <td><%= Time.parse(event['starts_at']).strftime('%Y/%m/%d') %></td>
         <td><%= link_to( event['group']['name'], action: 'users', group_id: event['group']['id'] ) %></td>
         <td><a href="#" role="button" rel="popover" class="btn popover-test"

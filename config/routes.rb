@@ -3,7 +3,7 @@ Rails4Sandbox::Application.routes.draw do
   # For DoorKeeper
   get "doorkeeper/index"
   get "doorkeeper/index/:page" => "doorkeeper#index"
-  get "doorkeeper/events/:event_id" => "doorkeeper#events"
+  get "doorkeeper/events/:event_id/:starts_at/:ends_at" => "doorkeeper#events"
   get "doorkeeper/users/:group_id" => "doorkeeper#users"
 
   # For Atnd
