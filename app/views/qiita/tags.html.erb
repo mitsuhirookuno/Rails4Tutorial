@@ -7,9 +7,9 @@
       <% timeline['tags'].each_with_index{ | tag, index | %>
         <span class='qiita_category_img'>
         <% if tag['icon_url'] == '/icons/medium/missing.png' %>
-          <%= image_tag( '/images/no_image.png', :height => '32', :alt => tag['name'], :title => tag['name'] ) %>
+          <%= image_tag( '/images/no_image.png', :size => '32x32', :alt => tag['name'], :title => tag['name'] ) %>
         <% else %>
-          <%= link_to( image_tag( tag['icon_url'], :height => '32', :alt => tag['name'], :title => tag['name'] ), action: 'tags', tag: tag['name'] ) %>
+          <%= link_to( image_tag( tag['icon_url'], :size => '32x32', :alt => tag['name'], :title => tag['name'] ), action: 'tags', tag: tag['name'] ) %>
         <% end %>
         </span>
       <% } %>
