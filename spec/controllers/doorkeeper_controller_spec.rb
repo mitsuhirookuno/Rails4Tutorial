@@ -11,7 +11,7 @@ describe DoorkeeperController do
 
   describe "GET 'events'" do
     it "returns http success" do
-      get 'events', event_id: "806"
+      get 'events', event_id: "5392", starts_at: "2013-08-24T04:00:00Z", ends_at: "2013-08-24T09:00:00Z"
       response.should be_success
     end
   end
