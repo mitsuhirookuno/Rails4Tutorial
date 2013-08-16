@@ -1,34 +1,4 @@
-<script type="text/javascript">
-    google_map_loaded = false ;
-    function load_only_once() {
-        if( google_map_loaded == true ) {
-            return false ;
-        }
-        else {
-            google_map_initialize();
-            google_map_loaded = true ;
-            return true ;
-        }
-    }
-    function google_map_initialize() {
-        var latlng = new google.maps.LatLng(<%=@event['lat']%>,<%=@event['long']%>);
-        var opts = {
-            zoom: 15,
-            center: latlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
-
-        var image = '/images/pin.png' ;
-        var myLatLng = new google.maps.LatLng(<%=@event['lat']%>,<%=@event['long']%>);
-        var beachMarker = new google.maps.Marker({
-            position: myLatLng,
-            map:      map,
-            icon:     image,
-            title:    'ココ！'
-        });
-    }
-</script>
+<%=raw render_googlemap( @event['lat'], @event['lon'] ) %>
 
 <h3><%= link_to( @event['title'], @event['public_url'] ) %></h3>
 <h4><%=@event['starts_at'] %>〜<%=@event['ends_at'] %></h4>
