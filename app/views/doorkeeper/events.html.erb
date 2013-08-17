@@ -1,4 +1,4 @@
-<%=raw render_googlemap( @event['lat'], @event['lon'] ) %>
+<%=render_googlemap( @event['lat'], @event['lon'] ) %>
 
 <h3><%= link_to( @event['title'], @event['public_url'] ) %></h3>
 <h4><%=@event['starts_at'] %>〜<%=@event['ends_at'] %></h4>

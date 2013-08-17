@@ -1,17 +1,21 @@
 <% qiita_timeline = @qiita_timelines.first %>
-<h2><span class='user_image'><%= image_tag(qiita_timeline['user']['profile_image_url']) %></span><%=  qiita_timeline['user']['url_name'] %></h2>
+
+<h2>
+  <span class='user_image'>
+    <%= image_tag(qiita_timeline['user']['profile_image_url']) %>
+  </span>
+  <%= qiita_timeline['user']['url_name'] %>
+</h2>
+
 <table class='table table-striped'>
 <% @qiita_timelines.each_with_index{ | timeline, index | %>
   <tr>
     <td><%=link_to timeline['title'], timeline['url'] %></td>
     <td>
       <% timeline['tags'].each_with_index{ | tag, index | %>
-        <span class='qiita_category_img'>
-        <% if tag['icon_url'] == '/icons/medium/missing.png' %>
-          <%= image_tag( '/images/no_image.png', :size => '32x32', :alt => tag['name'], :title => tag['name'] ) %>
-        <% else %>
-          <%= link_to( image_tag( tag['icon_url'], :size => '32x32', :alt => tag['name'], :title => tag['name'] ), action: 'tags', tag: tag['name'] ) %>
-        <% end %>
+        <span class='qiita_category_image'>
+          <% image_tag_out = image_tag_completion_missing( tag['icon_url'], alt: tag['name'], title: tag['name'] ) %>
+          <%= link_to( image_tag_out, action: 'tags', tag: tag['name'] ) %>
         </span>
       <% } %>
     </td>

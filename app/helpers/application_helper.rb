@@ -33,6 +33,6 @@ function google_map_initialize() {
 }
 </script>
     EOS
-    template
+    raw(template)
   end
 end
