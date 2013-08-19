@@ -8,7 +8,7 @@
 </h2>
 
 <table class='table table-striped'>
-<% @qiita_timelines.each_with_index{ | timeline, index | %>
+  <% @qiita_timelines.each_with_index{ | timeline, index | %>
   <tr>
     <td><%=link_to timeline['title'], timeline['url'] %></td>
     <td>
@@ -20,5 +20,5 @@
       <% } %>
     </td>
   </tr>
-<% } %>
+  <% } %>
 </table>

@@ -1,4 +1,33 @@
 module ApplicationHelper
+
+  def breadcrumb
+    if controller_name == 'welcome'
+      template = <<-"EOS"
+        <ul class="breadcrumb">
+          <li class="active">Home</li>
+        </ul>
+      EOS
+    elsif action_name == 'index'
+      template = <<-"EOS"
+        <ul class="breadcrumb">
+          <li><a href="/">Home</a> <span class="divider">/</span></li>
+          <li class="active">#{controller_name.camelize}</li>
+        </ul>
+      EOS
+    else
+      template = <<-"EOS"
+        <ul class="breadcrumb">
+          <li><a href="/">Home</a> <span class="divider">/</span></li>
+          <li><a href="/#{controller_name}/index">#{controller_name.camelize}</a> <span class="divider">/</span></li>
+          <li class="active">#{action_name.camelize}</li>
+        </ul>
+      EOS
+    end
+
+    raw(template)
+  end
+
+
   def render_googlemap( lat, lon )
     template = <<-"EOS"
 <script type="text/javascript">
@@ -35,4 +64,5 @@ function google_map_initialize() {
     EOS
     raw(template)
   end
+
 end
