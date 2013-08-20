@@ -29,6 +29,7 @@ module ApplicationHelper
 
 
   def render_googlemap( lat, lon )
+    return '' if lat.nil?
     template = <<-"EOS"
 <script type="text/javascript">
 google_map_loaded = false ;
