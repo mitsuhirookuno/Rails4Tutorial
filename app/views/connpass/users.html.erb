@@ -3,14 +3,14 @@
 <table border=1>
   <tr>
     <th></th>
-    <th>主催者</th>
     <th>イベント</th>
   </tr>
 <% @events.each_with_index{ |event,index| %>
   <tr>
     <td><%= index+1 %></td>
-    <td><%= (event['owner_nickname'] == params[:nickname])? '◎':'' %></td>
-    <td><%= link_to( event['title'], event['event_url'] ) %></td>
+    <td>
+      <%= link_to( event['title'], action: 'events', event_id: event['event_id'] ) %>
+    </td>
   </tr>
 <% } %>
 </table>

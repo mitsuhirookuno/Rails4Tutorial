@@ -1,4 +1,4 @@
-<%=render_googlemap( @event['lat'], @event['lon'] ) %>
+<%=render_googlemap( @event['lat'], @event['long'] ) %>
 
 <h3><%= link_to( @event['title'], @event['public_url'], confirm: '外部サイトへジャンプします', target: '_blank' ) %></h3>
 

@@ -8,9 +8,13 @@
 </h2>
 
 <table class='table table-striped'>
+  <tr>
+    <th>Title</th>
+    <th>Tag</th>
+  </tr>
   <% @qiita_timelines.each_with_index{ | timeline, index | %>
   <tr>
-    <td><%=link_to timeline['title'], timeline['url'], confirm: '外部サイトへジャンプします', target: '_blank' %></td>
+    <td><%=link_to( timeline['title'], timeline['url'], confirm: '外部サイトへジャンプします', target: '_blank' ) %></td>
     <td>
       <% timeline['tags'].each_with_index{ | tag, index | %>
         <span class='qiita_category_image'>
