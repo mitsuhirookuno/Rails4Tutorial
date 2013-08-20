@@ -1,6 +1,6 @@
 <%=render_googlemap( @event['lat'], @event['lon'] ) %>
 
-<h3><%= link_to( @event['title'], @event['event_url'] ) %></h3>
+<h3><%= link_to( @event['title'], @event['event_url'], confirm: '外部サイトへジャンプします', target: '_blank' ) %></h3>
 <%=@event['catch'] %>
 <h4><%= @event['accepted'] %><%=(@event['waiting']>0)? "(+#{@event['waiting']})":'' %>/<%= @event['limit'] %></h4>
 <%= link_to( @event['owner_nickname'], action: 'users', owner_id: @event['owner_id'] ) %>

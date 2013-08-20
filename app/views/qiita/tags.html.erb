@@ -19,7 +19,7 @@
       <% } %>
     </td>
     <td>
-      <%=link_to timeline['title'], timeline['url'] %>
+      <%=link_to(timeline['title'], timeline['url'], confirm: '外部サイトへジャンプします', target: '_blank') %>
     </td>
     <td>
       <% image_tag_out = image_tag( user['profile_image_url'], width: '96px', alt: user['url_name'], title: user['url_name'] ) %>

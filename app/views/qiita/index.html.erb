@@ -6,7 +6,7 @@
       <%=link_to( image_tag_out, action: 'users', user: user['url_name'] ) %>
     </td>
     <td>
-      <%=link_to( timeline['title'], timeline['url'] ) %>
+      <%=link_to( timeline['title'], timeline['url'], confirm: '外部サイトへジャンプします', target: '_blank' ) %>
     </td>
     <td>
       <% timeline['tags'].each_with_index{ | tag, index | %>
