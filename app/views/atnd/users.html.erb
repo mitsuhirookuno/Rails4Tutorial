@@ -10,7 +10,7 @@
       <tr>
         <td><%= index+1 %></td>
         <td><%= event['owner_nickname'] %></td>
-        <td><%= link_to( event['title'], event['event_url'], confirm: '外部サイトへジャンプします', target: '_blank' ) %></td>
+        <td><%= link_to_different_domain( event['title'], event['event_url'] ) %></td>
       </tr>
   <% } %>
 </table>
