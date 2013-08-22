@@ -101,4 +101,4 @@ gem 'atndr'
 # gem 'doorkeeper'
 # partake
 gem 'kaminari'
-
+gem 'RedCloth'
