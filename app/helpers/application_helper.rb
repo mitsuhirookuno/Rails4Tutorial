@@ -69,7 +69,7 @@ function google_map_initialize() {
   end
 
   def link_to_different_domain( title_text, link_url )
-    link_to( title_text, link_url, confirm: '外部サイトへジャンプします', target: '_blank' )
+    link_to( title_text, link_url, data: { confirm: '外部サイトへジャンプします', target: '_blank' } )
   end
 
 end
