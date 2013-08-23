@@ -1,15 +1,22 @@
 <%=render_googlemap( @event.lat, @event.lon ) %>
 
-<h3><%= link_to_different_domain( @event.title, @event.event_url ) %></h3>
+<div class="page-header">
+  <h3>
+    <%= link_to_different_domain( @event.title, @event.event_url ) %>
+  </h3>
+</div>
 
 <h4>
-  日時：
+  <span class="label label-info">日時</span>
   <%= Time.parse(@event.started_at).to_s(:long_jp) if @event.started_at.presence %>
   ～
   <%= Time.parse(@event.ended_at).to_s(:long_jp) if @event.ended_at.presence %>
 </h4>
 
-<h4>人数：<%= @event.accepted %><%= (@event.waiting>0)? "(#{@event.waiting})":'' %>/<%= @event.limit %></h4>
+<h4>
+  <span class="label label-info">人数</span>
+  <%= @event.accepted %><%= (@event.waiting>0)? "(#{@event.waiting})":'' %>/<%= @event.limit %>
+</h4>
 
 <ul class="nav nav-tabs">
   <li class="active"><a href="#home" data-toggle="tab">詳細</a></li>

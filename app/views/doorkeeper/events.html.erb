@@ -1,8 +1,16 @@
 <%=render_googlemap( @event['lat'], @event['long'] ) %>
 
-<h3><%= link_to_different_domain( @event['title'], @event['public_url'] ) %></h3>
+<div class="page-header">
+  <h3>
+  　<%= link_to_different_domain( @event['title'], @event['public_url'] ) %>
+　</h3>
+</div>
 
-<h4><%=(Time.parse(@event['starts_at'])+9.hour).to_s(:long_jp) %>〜<%=(Time.parse(@event['ends_at'])+9.hour).to_s(:long_jp) %></h4>
+<h4>
+  <span class="label label-info">日時</span>
+  <%=(Time.parse(@event['starts_at'])+9.hour).to_s(:long_jp) %>〜<%=(Time.parse(@event['ends_at'])+9.hour).to_s(:long_jp) %>
+</h4>
+
 <ul class="nav nav-tabs">
   <li class="active"><a href="#home" data-toggle="tab">詳細</a></li>
   <li><a href="#address" data-toggle="tab" onClick="load_only_once();">場所</a></li>

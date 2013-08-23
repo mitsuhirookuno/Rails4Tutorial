@@ -1,8 +1,24 @@
 <%=render_googlemap( @event['lat'], @event['lon'] ) %>
 
-<h3><%= link_to_different_domain( @event['title'], @event['event_url'] ) %></h3>
-<%=@event['catch'] %>
-<h4><%= @event['accepted'] %><%=(@event['waiting']>0)? "(+#{@event['waiting']})":'' %>/<%= @event['limit'] %></h4>
+<div class="page-header">
+  <h3>
+    <%= link_to_different_domain( @event['title'], @event['event_url'] ) %>
+    <small><%=@event['catch'] %></small>
+  </h3>
+</div>
+
+<h4>
+  <span class="label label-info">日時</span>
+  <%= Time.parse(@event['started_at']).to_s(:long_jp) %>
+  ～
+  <%= Time.parse(@event['ended_at']).to_s(:long_jp) %>
+</h4>
+
+<h4>
+  <span class="label label-info">人数</span>
+  <%= @event['accepted'] %><%=(@event['waiting']>0)? "(+#{@event['waiting']})":'' %>/<%= @event['limit'] %>
+</h4>
+
 <%= link_to( @event['owner_nickname'], action: 'users', owner_id: @event['owner_id'] ) %>
 <hr/>
 
