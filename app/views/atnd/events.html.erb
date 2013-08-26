@@ -19,6 +19,7 @@
   <%= @event['accepted'] %><%=(@event['waiting']>0)? "(+#{@event['waiting']})":'' %>/<%= @event['limit'] %>
 </h4>
 
+<span class="label label-info">オーナー</span>
 <%= link_to( @event['owner_nickname'], action: 'users', owner_id: @event['owner_id'] ) %>
 <hr/>
 

@@ -15,10 +15,11 @@
 </h4>
 
 <h4>
-  <span class="label label-info">日時</span>
+  <span class="label label-info">人数</span>
   <%= @event['accepted'] %><%=(@event['waiting']>0)? "(+#{@event['waiting']})":'' %>/<%= @event['limit'] %>
 </h4>
 
+<span class="label label-info">オーナー</span>
 <%= link_to( @event['owner_display_name'], action: 'users', nickname: @event['owner_nickname'] ) %>
 
 
