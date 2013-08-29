@@ -8,7 +8,11 @@
   </tr>
   <% @events.each_with_index{|event,index| %>
       <tr>
-        <td><%= @offset + index %></td>
+        <td>
+          <span class="badge">
+            <%= @offset + index %>
+          </span>
+        </td>
         <td><%= link_to( event['title'][0..40], action: 'events', event_id: event['event_id'] ) %></td>
         <td><%= Time.parse(event['started_at']).to_s(:short_jp) %></td>
         <td><%= link_to( event['owner_nickname'], action: 'users', owner_id: event['owner_id'] ) %></td>

@@ -8,7 +8,7 @@
   </tr>
   <% @events.each_with_index{ |event,index| %>
       <tr>
-        <td><%= index+1 %></td>
+        <td><span class="badge"><%= index+1 %></span></td>
         <td><%= event['owner_nickname'] %></td>
         <td><%= link_to_different_domain( event['title'], event['event_url'] ) %></td>
       </tr>

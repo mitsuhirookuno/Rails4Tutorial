@@ -7,7 +7,7 @@
   </tr>
 <% @events.each_with_index{|event,index| %>
   <tr>
-    <td><%= @offset + index %></td>
+    <td><span class="badge"><%= @offset + index %></span></td>
     <td><%= link_to( event.title[0..40],
                      { action: 'events', event_id: event.event_id },
                      { "data-toggle" => "tooltip", "title" => event.title + ':' + event.catch } ) %></td>

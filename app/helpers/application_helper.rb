@@ -69,9 +69,9 @@ function google_map_initialize() {
   end
 
   def link_to_different_domain( title_text, link_url, options = {} )
-    default_options = { confirm: '外部サイトへジャンプします', target: '_blank' }
+    default_options = { class: 'brand', title: '外部サイトへジャンプします', data: { confirm: '外部サイトへジャンプします', target: '_blank' } }
     options = default_options.merge( options )
-    link_to( title_text, link_url, class: 'brand', data: options )
+    link_to( title_text, link_url, options )
   end
 
 end
