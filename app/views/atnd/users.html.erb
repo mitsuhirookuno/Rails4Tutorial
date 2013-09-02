@@ -1,15 +1,16 @@
-<h3><%=params[:nickname] %></h3>
+<h3>
+  <% event = @events.first %>
+  <%=event['owner_nickname'] %>
+</h3>
 
-<table border=1>
+<table class='table table-striped table-bordered table-condensed'>
   <tr>
     <th></th>
-    <th>主催者</th>
     <th>イベント</th>
   </tr>
   <% @events.each_with_index{ |event,index| %>
       <tr>
         <td><span class="badge"><%= index+1 %></span></td>
-        <td><%= event['owner_nickname'] %></td>
         <td><%= link_to_different_domain( event['title'], event['event_url'] ) %></td>
       </tr>
   <% } %>
