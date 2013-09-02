@@ -43,7 +43,6 @@ class ConnpassController < ApplicationController
   #
   def users
     search_result = Connpass.event_search(params)
-    binding.pry
     @events = search_result['events']
   end
   

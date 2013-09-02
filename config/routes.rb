@@ -23,7 +23,7 @@ Rails4Sandbox::Application.routes.draw do
   get "connpass/index"
   get "connpass/index/:page" => "connpass#index"
   get "connpass/events/:event_id" => "connpass#events"
-  get "connpass/users/:nickname" => "connpass#users"
+  get "connpass/users/:owner_nickname" => "connpass#users"
 
   # For Zussar
   get "zussar/index"
