@@ -9,12 +9,16 @@
 
 <table class='table table-striped'>
   <tr>
+    <th></th>
     <th>Tag</th>
     <th>Title</th>
     <th>User</th>
   </tr>
   <% @qiita_timelines.each_with_index{ | timeline, index | user = timeline['user'] %>
   <tr>
+    <td>
+      <span class="badge"><%= @offset + index %></span>
+    </td>
     <td>
       <% timeline['tags'].sort_by{|r| (r['name'] == params[:tag])? 1:2  }.each_with_index{ | tag, index | %>
         <span class='qiita_category_image'>
@@ -33,3 +37,8 @@
   </tr>
   <% } %>
 </table>
+
+<ul class="pager">
+  <li><%= link_to_if( (@page)>1, 'Prev', action: 'tags', tag: params[:tag], page: @page-1 ) %></li>
+  <li><%= link_to( 'Next', action: 'tags', tag: params[:tag], page: @page+1 ) %></li>
+</ul>

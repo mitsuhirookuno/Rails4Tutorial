@@ -9,11 +9,13 @@
 
 <table class='table table-striped'>
   <tr>
+    <th></th>
     <th>Title</th>
     <th>Tag</th>
   </tr>
   <% @qiita_timelines.each_with_index{ | timeline, index | %>
   <tr>
+    <td><span class="badge"><%= @offset + index %></span></td>
     <td><%=link_to_different_domain( timeline['title'], timeline['url'] ) %></td>
     <td>
       <% timeline['tags'].each_with_index{ | tag, index | %>
@@ -26,3 +28,8 @@
   </tr>
   <% } %>
 </table>
+
+<ul class="pager">
+  <li><%= link_to_if( (@page)>1, 'Prev', action: 'users', user: params[:user], page: @page-1 ) %></li>
+  <li><%= link_to( 'Next', action: 'users', user: params[:user], page: @page+1 ) %></li>
+</ul>
