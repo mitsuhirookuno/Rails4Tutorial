@@ -11,7 +11,7 @@ describe ConnpassController do
 
   describe "GET 'users'" do
     it "returns http success" do
-      get 'users', nickname: 'umekumi'
+      get 'users', owner_nickname: 'umekumi'
       response.should be_success
     end
   end
