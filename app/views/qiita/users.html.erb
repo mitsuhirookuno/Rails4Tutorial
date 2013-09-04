@@ -1,11 +1,13 @@
 <% qiita_timeline = @qiita_timelines.first %>
 
-<h2>
-  <span class='user_image'>
-    <%= image_tag( qiita_timeline['user']['profile_image_url'], width: '64px' ) %>
-  </span>
-  <%= qiita_timeline['user']['url_name'] %>
-</h2>
+<% if qiita_timeline.presence %>
+  <h2>
+    <span class='user_image'>
+      <%= image_tag( qiita_timeline['user']['profile_image_url'], width: '64px' ) %>
+    </span>
+    <%= qiita_timeline['user']['url_name'] %>
+  </h2>
+<% end %>
 
 <table class='table table-striped'>
   <tr>

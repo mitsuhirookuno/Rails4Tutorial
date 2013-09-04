@@ -1,11 +1,12 @@
-<% qiita_timeline = @qiita_timelines.first['tags'].find{|r| r['name'] == params[:tag] } %>
-
-<h2>
-  <span class='user_image'>
-    <%= image_tag( qiita_timeline['icon_url'], width: '64px' ) %>
-  </span>
-  <%= qiita_timeline['name'] %>
-</h2>
+<% if @qiita_timelines.presence %>
+  <% qiita_timeline = @qiita_timelines.first['tags'].find{|r| r['name'] == params[:tag] } %>
+  <h2>
+    <span class='user_image'>
+      <%= image_tag( qiita_timeline['icon_url'], width: '64px' ) %>
+    </span>
+    <%= qiita_timeline['name'] %>
+  </h2>
+<% end %>
 
 <table class='table table-striped'>
   <tr>
