@@ -1,0 +1,2 @@
+module Zussar::EventsHelper
+end

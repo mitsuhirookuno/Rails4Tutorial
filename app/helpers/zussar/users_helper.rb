@@ -1,0 +1,2 @@
+module Zussar::UsersHelper
+end

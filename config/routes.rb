@@ -1,5 +1,8 @@
 Rails4Sandbox::Application.routes.draw do
 
+  get "users/show"
+  get "events/index"
+  get "events/show"
   # For DoorKeeper
   get "doorkeeper/index"
   get "doorkeeper/index/:page" => "doorkeeper#index"
@@ -14,7 +17,7 @@ Rails4Sandbox::Application.routes.draw do
 
   # root to: 'top#index'
 
-  # For OmniAuth
+  # For OmniAuth                                                                                                           s
   get "/auth/:provider/callback" => "sessions#callback"
   get "/auth/failure"            => "sessions#failure"
   get "/logout"                  => "sessions#destroy", as: :logout
@@ -26,10 +29,12 @@ Rails4Sandbox::Application.routes.draw do
   get "connpass/users/:owner_nickname" => "connpass#users"
 
   # For Zussar
-  get "zussar/index"
-  get "zussar/index/:page" => "zussar#index"
-  get "zussar/users/:user_id" => "zussar#users"
-  get "zussar/events/:event_id" => "zussar#events"
+  namespace :zussar do
+    resources :events, :only => [ :index, :show ]
+    resources :users,  :only => [ :show ]
+  end
+
+
 
   # For Qiita
   get "qiita/tags"

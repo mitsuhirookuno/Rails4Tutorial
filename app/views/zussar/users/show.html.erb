@@ -1,0 +1,39 @@
+<h4><%=link_to( @user.nickname, action: 'show', id: @user.user_id ) %></h4>
+<%
+   if @user.profile_url.match(%r!^http://twitter\.com!)
+     sns_type = 'twiiter'
+   elsif  @user.profile_url.match(%r!^http://www\.facebook\.com!)
+     sns_type = 'facebook'
+   else
+     sns_type = 'mixi'
+   end
+%>
+<h5><%=link_to( sns_type, @user.profile_url ) %></h5>
+
+<table border=1>
+  <tr>
+    <th></th>
+    <th>内容</th>
+    <th>主催/一般</th>
+    <th>参加人数</th>
+  </tr>
+  <% @user_events.each_with_index{|event,index| %>
+      <tr>
+        <td><span class="badge"><%= index+1 %></span></td>
+        <td>
+          <%= link_to( event.title, controller: 'events' , action: 'show', id: event.event_id ) %>
+        </td>
+        <td>
+          <% if @owner_events.find{|e| e.event_id == event.event_id } %>
+              主催
+          <% else %>
+              一般
+          <% end %>
+        </td>
+        <td>
+          <%= event.accepted %>
+        </td>
+      </tr>
+  <% } %>
+</table>
+

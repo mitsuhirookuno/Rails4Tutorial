@@ -16,7 +16,7 @@
       <% if @event.owner_id == user.user_id %>
       <span class="label label-important">オーナー</span>
       <% end %>
-      <%=link_to( user.nickname, action: 'users', user_id: user.user_id  ) %>
+      <%= link_to( user.nickname, controller: 'zussar/users', action: 'show', id: user.user_id  ) %>
     </td>
     <td>
      <% if user.profile_url.match(%r!^http://twitter\.com!)
