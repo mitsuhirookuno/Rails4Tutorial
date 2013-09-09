@@ -23,10 +23,10 @@ Rails4Sandbox::Application.routes.draw do
   get "/logout"                  => "sessions#destroy", as: :logout
 
   # For Connpass
-  get "connpass/index"
-  get "connpass/index/:page" => "connpass#index"
-  get "connpass/events/:event_id" => "connpass#events"
-  get "connpass/users/:owner_nickname" => "connpass#users"
+  namespace :connpass do
+    resources :events, :only => [ :index, :show ]
+    resources :users,  :only => [ :show ]
+  end
 
   # For Zussar
   namespace :zussar do
