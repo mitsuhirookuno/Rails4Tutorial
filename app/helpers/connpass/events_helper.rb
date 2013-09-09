@@ -1,0 +1,2 @@
+module Connpass::EventsHelper
+end

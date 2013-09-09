@@ -1,0 +1,2 @@
+module Connpass::UsersHelper
+end
