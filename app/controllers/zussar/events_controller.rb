@@ -33,8 +33,8 @@ class Zussar::EventsController < ApplicationController
   #   イベントの詳細を表示します
   #
   def show
-    search_results_events = Zusaar.search_events( params )
-    search_results_users  = Zusaar.search_users( params )
+    search_results_events = Zusaar.search_events( event_id: params[:id] )
+    search_results_users  = Zusaar.search_users( event_id: params[:id] )
 
     @event = search_results_events.events.first
     @limit = search_results_users.events.first.limit

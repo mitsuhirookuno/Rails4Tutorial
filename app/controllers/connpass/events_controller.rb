@@ -34,7 +34,7 @@ class Connpass::EventsController < ApplicationController
   #   イベントの詳細を表示します
   #
   def show
-    search_result = Connpass.event_search(params)
+    search_result = Connpass.event_search(event_id: params[:id])
     @event = search_result['events'].first
   end
 
