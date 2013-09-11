@@ -16,7 +16,7 @@ class Connpass::UsersController < ApplicationController
   #   ユーザーの詳細を表示します
   #
   def show
-    search_result = Connpass.event_search(params)
+    search_result = Connpass.event_search( owner_nickname: params[:id] )
     @events = search_result['events']
   end
 
