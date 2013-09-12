@@ -1,19 +1,16 @@
 Rails4Sandbox::Application.routes.draw do
 
-  get "users/show"
-  get "events/index"
-  get "events/show"
   # For DoorKeeper
-  get "doorkeeper/index"
-  get "doorkeeper/index/:page" => "doorkeeper#index"
-  get "doorkeeper/events/:event_id/:starts_at/:ends_at" => "doorkeeper#events"
-  get "doorkeeper/users/:group_id" => "doorkeeper#users"
+  namespace :doorkeeper do
+    resources :events, :only => [ :index, :show ]
+    resources :users,  :only => [ :show ]
+  end
 
   # For Atnd
-  get "atnd/index"
-  get "atnd/index/:page" => "atnd#index"
-  get "atnd/events/:event_id" => "atnd#events"
-  get "atnd/users/:owner_id" => "atnd#users"
+  namespace :atnd do
+    resources :events, :only => [ :index, :show ]
+    resources :users,  :only => [ :show ]
+  end
 
   # root to: 'top#index'
 

@@ -1,0 +1,2 @@
+module Atnd::UsersHelper
+end

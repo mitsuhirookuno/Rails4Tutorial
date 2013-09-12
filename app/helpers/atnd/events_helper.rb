@@ -1,0 +1,2 @@
+module Atnd::EventsHelper
+end

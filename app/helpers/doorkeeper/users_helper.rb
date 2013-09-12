@@ -1,0 +1,2 @@
+module Doorkeeper::UsersHelper
+end

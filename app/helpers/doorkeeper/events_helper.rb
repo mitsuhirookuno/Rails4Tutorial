@@ -1,0 +1,2 @@
+module Doorkeeper::EventsHelper
+end

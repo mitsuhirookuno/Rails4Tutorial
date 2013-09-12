@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "doorkeeper/users.html.erb" do
+describe "events/show.html.erb" do
   pending "add some examples to (or delete) #{__FILE__}"
 end
