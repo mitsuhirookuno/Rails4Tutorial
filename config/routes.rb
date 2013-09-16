@@ -14,7 +14,7 @@ Rails4Sandbox::Application.routes.draw do
 
   # root to: 'top#index'
 
-  # For OmniAuth                                                                                                           s
+  # For OmniAuth
   get "/auth/:provider/callback" => "sessions#callback"
   get "/auth/failure"            => "sessions#failure"
   get "/logout"                  => "sessions#destroy", as: :logout
@@ -31,8 +31,6 @@ Rails4Sandbox::Application.routes.draw do
     resources :users,  :only => [ :show ]
   end
 
-
-
   # For Qiita
   get "qiita/tags"
   get "qiita/users"
@@ -43,7 +41,15 @@ Rails4Sandbox::Application.routes.draw do
   get "qiita/users/:user" => "qiita#users"
   get "qiita/users/:user/:page" => "qiita#users"
 
-  # The priority is based upon order of creation: first created -> highest priority.
+=begin
+  namespace :qiita do
+    get "tags"
+    get "tags/:tag" => "qiita#tags"
+  end
+=end
+
+
+    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
