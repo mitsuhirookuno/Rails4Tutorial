@@ -3,6 +3,7 @@
 module ApplicationHelper
 
   def breadcrumb
+    binding.pry
     if controller_name == 'welcome'
       template = <<-"EOS"
         <ul class="breadcrumb">
