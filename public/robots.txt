@@ -11,4 +11,6 @@ User-agent: AhrefsBot
 Crawl-delay: 60
 
 User-agent: MJ12bot
-Crawl-delay: 60
+Disallow: /
+# Crawl-delay: 60
+
