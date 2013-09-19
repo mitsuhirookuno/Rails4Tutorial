@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
   #    end
   #  end
   #end
-  
+
   private if Rails.env != "development"
 
   def get_connection( domain )
@@ -77,4 +77,5 @@ class ApplicationController < ActionController::Base
     end
     connection
   end
+
 end

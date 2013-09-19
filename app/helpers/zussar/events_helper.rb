@@ -1,5 +1,6 @@
 module Zussar::EventsHelper
 
+=begin
   # FIXME : 同じネームスペースのヘルパを上書いてしまうので、eventsの方に集約しています
   def breadcrumb
     if controller_name == 'events'
@@ -33,5 +34,6 @@ module Zussar::EventsHelper
     end
     raw(template)
   end
+=end
 
 end

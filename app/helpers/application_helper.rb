@@ -3,7 +3,65 @@
 module ApplicationHelper
 
   def breadcrumb
-    binding.pry
+
+    matched = params[:controller].scan(/^([^\/]*)\/.*/)
+    if matched.presence
+      module_name = matched.first.first
+    else
+      module_name = nil
+    end
+
+    case controller_name
+
+      when 'events' then
+
+        if action_name == 'index'
+
+          template = <<-"EOS"
+            <ul class="breadcrumb">
+              <li><a href="/">Home</a> <span class="divider">/</span></li>
+              <li>#{module_name.camelize} <span class="divider">/</span></li>
+              <li class="active">#{controller_name.camelize}</li>
+            </ul>
+          EOS
+
+        elsif action_name == 'show'
+
+          template = <<-"EOS"
+            <ul class="breadcrumb">
+              <li><a href="/">Home</a> <span class="divider">/</span></li>
+              <li>#{module_name.camelize} <span class="divider">/</span></li>
+              <li>#{link_to( controller_name.camelize, action: 'index' )} <span class="divider">/</span></li>
+            <li class="active">#{action_name.camelize}</li>
+            </ul>
+          EOS
+
+        else
+        end
+
+      when 'users' then
+
+        template = <<-"EOS"
+            <ul class="breadcrumb">
+              <li><a href="/">Home</a> <span class="divider">/</span></li>
+              <li>#{module_name.camelize} <span class="divider">/</span></li>
+              <li>#{controller_name.camelize} <span class="divider">/</span></li>
+              <li class="active">#{action_name.camelize}</li>
+            </ul>
+        EOS
+
+      when 'welcome' then
+
+        template = <<-"EOS"
+        <ul class="breadcrumb">
+          <li class="active">Home</li>
+        </ul>
+        EOS
+
+      else
+    end
+
+=begin
     if controller_name == 'welcome'
       template = <<-"EOS"
         <ul class="breadcrumb">
@@ -26,10 +84,11 @@ module ApplicationHelper
         </ul>
       EOS
     end
+=end
 
     raw(template)
-  end
 
+  end
 
   def render_googlemap( lat, lon )
     return '' if lat.nil?
