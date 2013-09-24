@@ -38,4 +38,10 @@ class Connpass::EventsController < ApplicationController
     @event = search_result['events'].first
   end
 
+  private if Rails.env != "development"
+
+  def breadcrumb
+    breadcrumb_base('connpass')
+  end
+
 end

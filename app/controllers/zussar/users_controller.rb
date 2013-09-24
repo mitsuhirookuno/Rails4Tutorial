@@ -25,4 +25,10 @@ class Zussar::UsersController < ApplicationController
     @user_events = search_results_events.events
   end
 
+  private if Rails.env != "development"
+
+  def breadcrumb
+    breadcrumb_base('zussar')
+  end
+
 end

@@ -71,5 +71,18 @@ class QiitaController < ApplicationController
     # FIXME : リトライ処理の実装
     get_connection( "https://qiita.com/" )
   end
-  
+
+  private if Rails.env != "development"
+
+  def breadcrumb
+    module_name = 'qiita'
+    template = <<-"EOS"
+          <ul class="breadcrumb">
+            <li><a href="/">Home</a> <span class="divider">/</span></li>
+            <li>#{module_name.camelize} <span class="divider">/</span></li>
+            <li class="active">#{action_name.camelize}</li>
+          </ul>
+    EOS
+  end
+
 end

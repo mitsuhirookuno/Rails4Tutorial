@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 class ApplicationController < ActionController::Base
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -67,7 +68,49 @@ class ApplicationController < ActionController::Base
   #  end
   #end
 
+  def breadcrumb
+    template = <<-"EOS"
+        <ul class="breadcrumb">
+          <li class="active">Home</li>
+        </ul>
+    EOS
+  end
+  helper_method :breadcrumb
+
+
   private if Rails.env != "development"
+
+  def breadcrumb_base( module_name )
+    if controller_name == 'events'
+      if action_name == 'index'
+        template = <<-"EOS"
+              <ul class="breadcrumb">
+                <li><a href="/">Home</a> <span class="divider">/</span></li>
+                <li>#{module_name.camelize} <span class="divider">/</span></li>
+                <li class="active">#{controller_name.camelize}</li>
+              </ul>
+        EOS
+      elsif action_name == 'show'
+        template = <<-"EOS"
+              <ul class="breadcrumb">
+                <li><a href="/">Home</a> <span class="divider">/</span></li>
+                <li>#{module_name.camelize} <span class="divider">/</span></li>
+                <li>#{controller_name.camelize} <span class="divider">/</span></li>
+              <li class="active">#{action_name.camelize}</li>
+              </ul>
+        EOS
+      end
+    elsif controller_name == 'users'
+      template = <<-"EOS"
+            <ul class="breadcrumb">
+              <li><a href="/">Home</a> <span class="divider">/</span></li>
+              <li>#{module_name.camelize} <span class="divider">/</span></li>
+              <li>#{controller_name.camelize} <span class="divider">/</span></li>
+              <li class="active">#{action_name.camelize}</li>
+            </ul>
+      EOS
+    end
+  end
 
   def get_connection( domain )
     connection = Faraday::Connection.new( :url => domain ) do |builder|

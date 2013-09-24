@@ -16,4 +16,10 @@ class Atnd::UsersController < ApplicationController
     @events = search_result
   end
 
+  private if Rails.env != "development"
+
+  def breadcrumb
+    breadcrumb_base('atnd')
+  end
+
 end

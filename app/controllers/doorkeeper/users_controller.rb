@@ -23,4 +23,10 @@ class Doorkeeper::UsersController < ApplicationController
     get_connection( "http://api.doorkeeper.jp/" )
   end
 
+  private if Rails.env != "development"
+
+  def breadcrumb
+    breadcrumb_base('doorkeeper')
+  end
+
 end

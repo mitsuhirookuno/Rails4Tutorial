@@ -2,6 +2,7 @@
 
 module ApplicationHelper
 
+  # helper_method
   def breadcrumb
 
     matched = params[:controller].scan(/^([^\/]*)\/.*/)

@@ -107,7 +107,7 @@
 <%= simple_format( flash[:alert], style: "color: red;" ) if flash[:alert].present? %>
 
 <%# パンくずリスト %>
-<%=breadcrumb %>
+<%=raw(breadcrumb) %>
 
 <%= yield %>
 

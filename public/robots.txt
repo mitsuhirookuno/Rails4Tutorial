@@ -8,7 +8,7 @@ User-agent: Googlebot
 Crawl-delay: 60
 
 User-agent: AhrefsBot
-Crawl-delay: 60
+Crawl-delay: 360
 
 User-agent: MJ12bot
 Disallow: /
