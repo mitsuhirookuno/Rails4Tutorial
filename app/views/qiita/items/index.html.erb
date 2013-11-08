@@ -1,0 +1,35 @@
+<table class='table table-striped'>
+  <tr>
+    <th></th>
+    <th>User</th>
+    <th>Title</th>
+    <th>Tag</th>
+  </tr>
+  <% @qiita_timelines.each_with_index{ | timeline, index | user = timeline['user'] %>
+      <tr>
+        <td>
+          <span class="badge"><%= @offset + index %></span>
+        </td>
+        <td>
+          <% image_tag_out = image_tag( user['profile_image_url'], width: '48px', alt: user['url_name'], title: user['url_name'] ) %>
+          <%=link_to( image_tag_out, controller: 'qiita/users', action: 'show', id: user['url_name'] ) %>
+        </td>
+        <td>
+          <%=link_to_different_domain( timeline['title'], timeline['url'] ) %>
+        </td>
+        <td>
+          <% timeline['tags'].each_with_index{ | tag, index | %>
+        <span class='qiita_category_image'>
+          <% image_tag_out = image_tag_completion_missing( tag['icon_url'], alt: tag['name'], title: tag['name'], page: 1 ) %>
+          <%= link_to( image_tag_out, controller: 'qiita/tags', action: 'show', id: tag['name']  ) %>
+        </span>
+          <% } %>
+        </td>
+      </tr>
+  <% } %>
+</table>
+
+<ul class="pager">
+  <li><%= link_to_if( (@page)>1, 'Prev', action: 'index', page: @page-1 ) %></li>
+  <li><%= link_to( 'Next', action: 'index', page: @page+1 ) %></li>
+</ul>

@@ -1,5 +1,7 @@
 Rails4Sandbox::Application.routes.draw do
 
+  get "tags/index"
+  get "tags/show"
   # For DoorKeeper
   namespace :doorkeeper do
     resources :events, :only => [ :index, :show ]
@@ -32,6 +34,13 @@ Rails4Sandbox::Application.routes.draw do
   end
 
   # For Qiita
+  namespace :qiita do
+    resources :items
+    resources :tags
+    resources :users
+  end
+
+=begin
   get "qiita/tags"
   get "qiita/users"
   get "qiita/index"
@@ -40,6 +49,8 @@ Rails4Sandbox::Application.routes.draw do
   get "qiita/tags/:tag/:page" => "qiita#tags"
   get "qiita/users/:user" => "qiita#users"
   get "qiita/users/:user/:page" => "qiita#users"
+=end
+
 
 =begin
   namespace :qiita do
@@ -54,6 +65,7 @@ Rails4Sandbox::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  post 'welcome/search'
   get 'welcome/reference' => 'welcome#reference'
 
   # Example of regular route:

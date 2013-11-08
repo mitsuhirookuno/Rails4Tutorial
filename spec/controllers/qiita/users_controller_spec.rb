@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe QiitaController do
+describe Qiita::UsersController do
 
   describe "GET 'index'" do
     it "returns http success" do
@@ -9,16 +9,9 @@ describe QiitaController do
     end
   end
 
-  describe "GET 'tags'" do
+  describe "GET 'show'" do
     it "returns http success" do
-      get 'tags', tag: 'Linux'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'users'" do
-    it "returns http success" do
-      get 'users'
+      get 'show', id: 'bugslife'
       response.should be_success
     end
   end

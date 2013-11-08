@@ -1,0 +1,2 @@
+module Qiita::TagsHelper
+end
