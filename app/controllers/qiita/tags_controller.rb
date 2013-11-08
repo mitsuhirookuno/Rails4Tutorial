@@ -18,4 +18,10 @@ class Qiita::TagsController < ApplicationController
     @qiita_timelines = Qiita.tag_items( params[:id], @parameters )
   end
 
+  private if Rails.env != "development"
+
+  def breadcrumb
+    breadcrumb_base('qiita')
+  end
+
 end

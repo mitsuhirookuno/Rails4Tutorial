@@ -18,4 +18,10 @@ class Qiita::UsersController < ApplicationController
     @qiita_timelines = Qiita.user_items( params[:id], @parameters )
   end
 
+  private if Rails.env != "development"
+
+  def breadcrumb
+    breadcrumb_base('qiita')
+  end
+
 end

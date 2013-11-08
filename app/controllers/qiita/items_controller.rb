@@ -16,8 +16,9 @@ class Qiita::ItemsController < ApplicationController
   end
 
   def show
-
   end
+
+  private if Rails.env != "development"
 
   def breadcrumb
     breadcrumb_base('qiita')
