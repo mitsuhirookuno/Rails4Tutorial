@@ -19,4 +19,8 @@ class Qiita::ItemsController < ApplicationController
 
   end
 
+  def breadcrumb
+    breadcrumb_base('qiita')
+  end
+
 end
