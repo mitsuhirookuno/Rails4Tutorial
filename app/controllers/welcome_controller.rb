@@ -32,7 +32,7 @@ class WelcomeController < ApplicationController
     @qiita_timelines = Qiita.user_items( nil, @parameters )
     @qiita_timelines.each{|timeline| @list.push(Qiita::TimeLine.new(timeline)) }
 
-    @list.sort_by{|r| r.started_at }
+    @list.sort_by!{|r| r.started_at }
   end
 
   def get_doorkeeper_connection

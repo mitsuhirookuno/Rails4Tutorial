@@ -1,14 +1,5 @@
-<hr />
-<%= @zussar_events.events.size %>
-
-<hr />
-<%= @connpass_events['events'].size %>
-
-<hr />
-<%= @atnd_events.size %>
-
-<hr />
-<%= @doorkeeper_events.size %>
-
-<hr />
-<%= @qiita_timelines.size %>
+<pre>
+  <% @list.each{|i| %>
+    <%=i.started_at.to_s(:db) %> <%=i.class.to_s %> <%=i.title %>
+  <% } %>
+</pre>

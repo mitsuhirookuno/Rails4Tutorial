@@ -21,6 +21,13 @@
 .DS_Store
 vendor/bundle
 /log/*.log.*
+*.swp
+*~
+doc/
+.idea
+bundle_bin/
+coverage/
+.yardoc/
 
 # rails_config
 config/settings.local.yml

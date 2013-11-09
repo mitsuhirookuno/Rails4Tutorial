@@ -1,7 +1,7 @@
 Rails4Sandbox::Application.routes.draw do
 
-  get "tags/index"
-  get "tags/show"
+  # get '/about',   to: 'top#index',   via: 'get'
+
   # For DoorKeeper
   namespace :doorkeeper do
     resources :events, :only => [ :index, :show ]
