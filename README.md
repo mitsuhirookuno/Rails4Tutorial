@@ -1,6 +1,6 @@
-# APP_NAME
+# Rails4習得を目的とした技術キーワード横断検索アプリ
 
-APP_DESCRIPTION.
+現在鋭意作成中の予定です.
 
 ## Local Setting
 
@@ -11,7 +11,7 @@ https://github.com/USER_NAME/APP_NAME/
 ```
 
 ### リポジトリをローカルへ作成
-
+Rails4習得を目的とした技術キーワード横断検索アプリ
 ```
 cd ~/WORK_DIRECTORY
 git clone git@github.com:YOUR_USER_NAME/APP_NAME.git
