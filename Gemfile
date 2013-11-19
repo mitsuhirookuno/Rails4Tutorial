@@ -57,7 +57,7 @@ group :test do
   gem 'flay'
   gem 'roodi1.9'
   # gem 'reek', '~> 1.2.6'
-  # gem 'brakeman'
+  gem 'brakeman'
   gem 'rails_best_practices'
   gem 'mocha', :require => false
 end
