@@ -1,5 +1,19 @@
-<pre>
+<ul>
   <% @list.each{|i| %>
-    <%=i.started_at.to_s(:db) %> <%=i.class.to_s %> <%=i.title %>
+    <li>
+      <% if i.instance_of?(Qiita::TimeLine) %>
+        <%=image_tag( '/images/qiita_icon.ico', :size => '16x16' ) %>
+      <% elsif i.instance_of?(Zussar::TimeLine) %>
+          <%=image_tag( '/images/zusaar_icon.ico', :size => '16x16' ) %>
+      <% elsif i.instance_of?(Connpass::TimeLine) %>
+          <%=image_tag( '/images/connpass_icon.ico', :size => '16x16' ) %>
+      <% elsif i.instance_of?(Atnd::TimeLine) %>
+          <%=image_tag( '/images/pin.ico', :size => '16x16' ) %>
+      <% elsif i.instance_of?(Doorkeeper::TimeLine) %>
+          <%=image_tag( '/images/doorkeeper_icon.png', :size => '16x16' ) %>
+      <% end %>
+      <%=i.started_at.to_s(:short_jp)%>
+      <%=i.title %>
+    </li>
   <% } %>
-</pre>
+</ul>

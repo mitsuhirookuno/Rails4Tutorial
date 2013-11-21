@@ -1,4 +1,33 @@
-<%#= form_tag( 'welcome/search', method: :post ) do %>
-  <%#= text_field_tag :keyword, 'Rails' %>
-  <%#= submit_tag '検索' %>
-<%# end %>
+<%=form_tag( 'welcome/search', method: :get, class: 'form-search' ) do %>
+  <div class="field">
+    <%= text_field_tag :keyword, '' %>
+  </div>
+  <div class="field">
+    <label class="checkbox">
+      <%= check_box_tag  :qiita, true, true, { tabindex: 1, accesskey: 'q' }  %>Qiita
+    </label>
+  </div>
+  <div class="field">
+    <label class="checkbox">
+      <%= check_box_tag  :zussar, true, true, { tabindex: 2, accesskey: 'z' }  %>Zussar
+    </label>
+  </div>
+  <div class="field">
+    <label class="checkbox">
+      <%= check_box_tag  :connpass, true, true, { tabindex: 3, accesskey: 'c' }  %>Connpass
+    </label>
+  </div>
+  <div class="field">
+    <label class="checkbox">
+      <%= check_box_tag  :atnd, true, true, { tabindex: 4, accesskey: 'a' }  %>Atnd
+    </label>
+  </div>
+  <div class="field">
+    <label class="checkbox">
+      <%= check_box_tag  :doorkeeper, true, true, { tabindex: 5, accesskey: 'd' }  %>Doorkeeper
+    </label>
+  </div>
+  <div class="actions">
+    <%= submit_tag '検索' %>
+  </div>
+<% end %>

@@ -65,7 +65,7 @@ Rails4Sandbox::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  post 'welcome/search'
+  get 'welcome/search'
   get 'welcome/reference' => 'welcome#reference'
 
   # Example of regular route:

@@ -14,23 +14,31 @@ class WelcomeController < ApplicationController
 
     @list = Array.new
 
-    @zussar_events = Zusaar.search_events( keyword: params[:keyword] )
-    logger.info @zussar_events.inspect
-    @zussar_events.events.each{|event| @list.push(Zussar::TimeLine.new(event)) }
+    if params[:zussar].presence
+      @zussar_events = Zusaar.search_events( keyword: params[:keyword] )
+      @zussar_events.events.each{|event| @list.push(Zussar::TimeLine.new(event)) }
+    end
 
-    @connpass_events = Connpass.event_search( keyword: params[:keyword] )
-    @connpass_events['events'].each{|event| @list.push(Connpass::TimeLine.new(event)) }
-    logger.info @connpass_events.inspect
+    if params[:connpass].presence
+      @connpass_events = Connpass.event_search( keyword: params[:keyword] )
+      @connpass_events['events'].each{|event| @list.push(Connpass::TimeLine.new(event)) }
+    end
 
-    @atnd_events = Atndr::Event.new.get_event( keyword: params[:keyword] )
-    @atnd_events.each{|event| @list.push(Atnd::TimeLine.new(event)) }
+    if params[:atnd].presence
+      @atnd_events = Atndr::Event.new.get_event( keyword: params[:keyword] )
+      @atnd_events.each{|event| @list.push(Atnd::TimeLine.new(event)) }
+    end
 
-    @doorkeeper_events = ActiveSupport::JSON.decode( get_doorkeeper_connection.get("/events?q=#{params[:keyword]}").body )
-    @doorkeeper_events.each{|event| @list.push(Doorkeeper::TimeLine.new(event)) }
+    if params[:doorkeeper].presence
+      @doorkeeper_events = ActiveSupport::JSON.decode( get_doorkeeper_connection.get("/events?q=#{params[:keyword]}").body )
+      @doorkeeper_events.each{|event| @list.push(Doorkeeper::TimeLine.new(event)) }
+    end
 
-    @parameters = { per_page: @page_size, page: @page }
-    @qiita_timelines = Qiita.user_items( nil, @parameters )
-    @qiita_timelines.each{|timeline| @list.push(Qiita::TimeLine.new(timeline)) }
+    if params[:qiita].presence
+      @parameters = { per_page: @page_size, page: @page }
+      @qiita_timelines = Qiita.user_items( nil, @parameters )
+      @qiita_timelines.each{|timeline| @list.push(Qiita::TimeLine.new(timeline)) }
+    end
 
     @list.sort_by!{|r| r.started_at }
   end
