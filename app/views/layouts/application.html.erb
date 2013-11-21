@@ -41,42 +41,44 @@
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#"><%=image_tag( '/images/pannya_logo.png', :size => '125x75' ) %></a>
-          <%=Settings.app_name %>
+          <a class="brand" href="#"><%=image_tag( '/images/pannya_logo.png', :size => '60x32' ) %></a>
           <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <% if signed_in? %>
-                  <%# ログイン済み %>
-                  <li>
-                    <%= render partial: '/layouts/user_icon', locals: { user: current_user, size: "18x18", klass: "margin_minus2" } %>
-                  </li>
-                  <li>
-                    <%= link_to( "Top", root_path ) %>
-                  </li>
-                  <li>
-                    <%= link_to( "Logout", logout_path ) %>
-                  </li>
-              <% else %>
-                  <%# 未ログイン %>
-                  <li>
-                    Login:
-                  </li>
-                  <li>
-                    <%= link_to "Twitter", "/auth/twitter" %>
-                  </li>
-                  <li>
-                    <%= link_to "Facebook", "/auth/facebook" %>
-                  </li>
-                  <li>
-                    <%= link_to "GitHub", "/auth/gitHub" %>
-                  </li>
-              <% end %>
-            </ul>
+            <div class="row-fluid">
+              <div class="span1">
+                <%=Settings.app_name %>
+              </div>
+              <div class="span6">
+
+                <ul class="nav">
+                  <% if signed_in? %>
+                    <%# ログイン済み %>
+                    <li>
+                      <%= render partial: '/layouts/user_icon', locals: { user: current_user, size: "18x18", klass: "margin_minus2" } %>
+                    </li>
+                    <li>
+                      <%= link_to( "Logout", logout_path ) %>
+                    </li>
+                  <% else %>
+                    <%# 未ログイン %>
+                    <li>
+                      <span class="label label-info">Login:</span>
+                    </li>
+                    <li>
+                      <%= link_to "Twitter", "/auth/twitter" %>
+                    </li>
+                    <li>
+                      <%= link_to "Facebook", "/auth/facebook" %>
+                    </li>
+                    <li>
+                      <%= link_to "GitHub", "/auth/gitHub" %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+              <div class="span1">
+                about
+              </div>
+            </div>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -98,13 +100,11 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
-          <%= bootstrap_flash %>
 
 
 
 <%# 通知／エラーメッセージ %>
-<%= simple_format( flash[:notice], style: "color: green;" ) if flash[:notice].present? %>
-<%= simple_format( flash[:alert], style: "color: red;" ) if flash[:alert].present? %>
+<%= bootstrap_flash %>
 
 <%# パンくずリスト %>
 <%=raw(breadcrumb) %>
