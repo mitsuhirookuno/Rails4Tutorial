@@ -40,6 +40,8 @@ class WelcomeController < ApplicationController
       @qiita_timelines.each{|timeline| @list.push(Qiita::TimeLine.new(timeline)) }
     end
 
+    # binding.pry
+
     @list.sort_by!{|r| r.started_at }
   end
 

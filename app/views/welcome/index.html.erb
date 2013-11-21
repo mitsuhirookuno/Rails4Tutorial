@@ -1,33 +1,52 @@
 <%=form_tag( 'welcome/search', method: :get, class: 'form-search' ) do %>
+
   <div class="field">
     <%= text_field_tag :keyword, '' %>
-  </div>
-  <div class="field">
-    <label class="checkbox">
-      <%= check_box_tag  :qiita, true, true, { tabindex: 1, accesskey: 'q' }  %>Qiita
-    </label>
-  </div>
-  <div class="field">
-    <label class="checkbox">
-      <%= check_box_tag  :zussar, true, true, { tabindex: 2, accesskey: 'z' }  %>Zussar
-    </label>
-  </div>
-  <div class="field">
-    <label class="checkbox">
-      <%= check_box_tag  :connpass, true, true, { tabindex: 3, accesskey: 'c' }  %>Connpass
-    </label>
-  </div>
-  <div class="field">
-    <label class="checkbox">
-      <%= check_box_tag  :atnd, true, true, { tabindex: 4, accesskey: 'a' }  %>Atnd
-    </label>
-  </div>
-  <div class="field">
-    <label class="checkbox">
-      <%= check_box_tag  :doorkeeper, true, true, { tabindex: 5, accesskey: 'd' }  %>Doorkeeper
-    </label>
   </div>
   <div class="actions">
     <%= submit_tag '検索' %>
   </div>
+
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              その他の条件
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="field">
+              <label class="checkbox">
+                <%= check_box_tag  :qiita, true, true, { tabindex: 1, accesskey: 'q' }  %>Qiita
+              </label>
+            </div>
+            <div class="field">
+              <label class="checkbox">
+                <%= check_box_tag  :zussar, true, true, { tabindex: 2, accesskey: 'z' }  %>Zussar
+              </label>
+            </div>
+            <div class="field">
+              <label class="checkbox">
+                <%= check_box_tag  :connpass, true, true, { tabindex: 3, accesskey: 'c' }  %>Connpass
+              </label>
+            </div>
+            <div class="field">
+              <label class="checkbox">
+                <%= check_box_tag  :atnd, true, true, { tabindex: 4, accesskey: 'a' }  %>Atnd
+              </label>
+            </div>
+            <div class="field">
+              <label class="checkbox">
+                <%= check_box_tag  :doorkeeper, true, true, { tabindex: 5, accesskey: 'd' }  %>Doorkeeper
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 <% end %>

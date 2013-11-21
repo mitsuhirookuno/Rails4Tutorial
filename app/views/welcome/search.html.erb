@@ -1,19 +1,20 @@
 <ul>
-  <% @list.each{|i| %>
+  <% @list.each{|time_line| %>
     <li>
-      <% if i.instance_of?(Qiita::TimeLine) %>
+      <% if time_line.instance_of?(Qiita::TimeLine) %>
         <%=image_tag( '/images/qiita_icon.ico', :size => '16x16' ) %>
-      <% elsif i.instance_of?(Zussar::TimeLine) %>
+      <% elsif time_line.instance_of?(Zussar::TimeLine) %>
           <%=image_tag( '/images/zusaar_icon.ico', :size => '16x16' ) %>
-      <% elsif i.instance_of?(Connpass::TimeLine) %>
+      <% elsif time_line.instance_of?(Connpass::TimeLine) %>
           <%=image_tag( '/images/connpass_icon.ico', :size => '16x16' ) %>
-      <% elsif i.instance_of?(Atnd::TimeLine) %>
+      <% elsif time_line.instance_of?(Atnd::TimeLine) %>
           <%=image_tag( '/images/pin.ico', :size => '16x16' ) %>
-      <% elsif i.instance_of?(Doorkeeper::TimeLine) %>
+      <% elsif time_line.instance_of?(Doorkeeper::TimeLine) %>
           <%=image_tag( '/images/doorkeeper_icon.png', :size => '16x16' ) %>
       <% end %>
-      <%=i.started_at.to_s(:short_jp)%>
-      <%=i.title %>
+      <%=time_line.started_at.to_s(:short_jp)%>
+      <%=time_line.title %>
+      <%= link_to "Link", time_line.link %>
     </li>
   <% } %>
 </ul>

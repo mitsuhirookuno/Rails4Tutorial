@@ -6,4 +6,8 @@ class TimeLine
     self.data = data
   end
 
+  def link
+    'http://sandbox.rubyprogrammer.info/'
+  end
+
 end

@@ -12,6 +12,10 @@ module Doorkeeper
       self.data['event']['title']
     end
 
+    def link
+      self.data['event']['public_url']
+    end
+
   end
 
 end

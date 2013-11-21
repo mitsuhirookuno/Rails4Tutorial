@@ -12,6 +12,10 @@ module Connpass
       self.data['title']
     end
 
+    def link
+      self.data['event_url']
+    end
+
   end
 
 end
