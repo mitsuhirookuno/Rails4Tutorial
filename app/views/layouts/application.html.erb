@@ -38,7 +38,7 @@
   </head>
   <body>
 
-  <div class="navbar navbar-ﬂuid-top">
+  <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
         <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
@@ -47,17 +47,21 @@
           <span class="icon-bar"></span>
         </a>
         <a class="brand" href="#"><%=image_tag( '/images/pannya_logo.png', :size => '60x32' ) %><%=Settings.app_name %></a>
-        <div class="container nav-collapse">
+        <div class="nav-collapse">
           <% if signed_in? %>
-              <span class="label"><%= render partial: '/layouts/user_icon', locals: { user: current_user, size: "18x18", klass: "margin_minus2" } %></span>
-              <%= link_to( "Logout", logout_path ) %>
+              <span class="label"><%= render partial: '/layouts/user_icon', locals: { user: current_user, size: "18x18", klass: "margin_minus2" } %></span> |
+              <%= link_to( "Logout", logout_path ) %> |
+              <i class="icon-info-sign"><%= link_to "about", about_path %></i>
           <% else %>
               <span class="label label-info">Login</span>
               <%= link_to "Twitter", "/auth/twitter" %> |
               <%= link_to "Facebook", "/auth/facebook" %> |
-              <%= link_to "GitHub", "/auth/gitHub" %>
+              <%= link_to "GitHub", "/auth/gitHub" %> |
+              <i class="icon-info-sign"><%= link_to "about", about_path %></i>
           <% end %>
         </div><!--/.nav-collapse -->
+        <div class="nav-collapse">
+        </div>
       </div>
     </div>
   </div>
@@ -95,6 +99,7 @@
         </div>
       </div><!--/row-->
 
+      <hr/>
       <%=render "welcome/footer" %>
 
     </div> <!-- /container -->

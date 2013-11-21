@@ -67,6 +67,7 @@ Rails4Sandbox::Application.routes.draw do
   root 'welcome#index'
   get 'welcome/search'
   get 'welcome/reference' => 'welcome#reference'
+  get '/about', to: 'welcome#reference', via: 'get'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
