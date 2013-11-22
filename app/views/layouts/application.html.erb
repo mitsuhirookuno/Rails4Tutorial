@@ -51,14 +51,13 @@
           <% if signed_in? %>
               <span class="label"><%= render partial: '/layouts/user_icon', locals: { user: current_user, size: "18x18", klass: "margin_minus2" } %></span> |
               <%= link_to( "Logout", logout_path ) %> |
-              <i class="icon-info-sign"><%= link_to "about", about_path %></i>
           <% else %>
               <span class="label label-info">Login</span>
               <%= link_to "Twitter", "/auth/twitter" %> |
               <%= link_to "Facebook", "/auth/facebook" %> |
               <%= link_to "GitHub", "/auth/gitHub" %> |
-              <i class="icon-info-sign"><%= link_to "about", about_path %></i>
           <% end %>
+          <i class="icon-info-sign"><%= link_to "about", "#myModal", "data-toggle" => "modal" %></i>
         </div><!--/.nav-collapse -->
         <div class="nav-collapse">
         </div>
@@ -84,6 +83,19 @@
         <div class="span9">
 
 
+
+          <div class="modal hide" id="myModal">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>Modal header</h3>
+            </div>
+            <div class="modal-body">
+              <p>One fine body…</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn" data-dismiss="modal">Close</a>
+            </div>
+          </div>
 
 <%# 通知／エラーメッセージ %>
 <%= bootstrap_flash %>
