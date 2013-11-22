@@ -12,6 +12,14 @@ module Qiita
       self.data['title']
     end
 
+    def link
+      self.data['url']
+    end
+
+    def inner_link
+      self.link
+    end
+
   end
 
 end

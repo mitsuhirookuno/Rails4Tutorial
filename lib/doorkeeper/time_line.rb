@@ -16,6 +16,15 @@ module Doorkeeper
       self.data['event']['public_url']
     end
 
+    def inner_link
+      params =[
+          self.data['event']['id'],
+          self.data['event']['starts_at'],
+          self.data['event']['ends_at']
+      ]
+      '/doorkeeper/events/%s?ends_at=%s&starts_at=%s' % params
+    end
+
   end
 
 end

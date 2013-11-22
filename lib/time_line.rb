@@ -10,4 +10,8 @@ class TimeLine
     'http://sandbox.rubyprogrammer.info/'
   end
 
+  def inner_link
+    'http://sandbox.rubyprogrammer.info/'
+  end
+
 end

@@ -16,6 +16,10 @@ module Connpass
       self.data['event_url']
     end
 
+    def inner_link
+      '/connpass/events/%s' % self.data['event_id']
+    end
+
   end
 
 end

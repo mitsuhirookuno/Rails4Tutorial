@@ -16,6 +16,10 @@ module Zussar
       self.data.event_url
     end
 
+    def inner_link
+      '/zussar/events/%s' % self.data.event_id
+    end
+
   end
 
 end
