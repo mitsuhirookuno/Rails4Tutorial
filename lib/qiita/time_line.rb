@@ -18,6 +18,7 @@ module Qiita
 
     def inner_link
       self.link
+      '/qiita/items/%s' % self.data['uuid']
     end
 
   end

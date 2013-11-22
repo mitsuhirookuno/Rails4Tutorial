@@ -16,6 +16,8 @@ class Qiita::ItemsController < ApplicationController
   end
 
   def show
+    @item = Qiita.item(params[:id])
+    # binding.pry
   end
 
   private if Rails.env != "development"
