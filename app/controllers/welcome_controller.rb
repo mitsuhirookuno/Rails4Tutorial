@@ -25,7 +25,7 @@ class WelcomeController < ApplicationController
     end
 
     if params[:atnd].presence
-      @atnd_events = Atndr::Event.new.get_event( keyword: params[:keyword] )
+      @atnd_events = Atndr::Event.new.get_event( keyword: URI.encode(params[:keyword]) )
       @atnd_events.each{|event| @list.push(Atnd::TimeLine.new(event)) }
     end
 

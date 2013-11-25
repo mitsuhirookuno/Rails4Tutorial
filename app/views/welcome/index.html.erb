@@ -1,9 +1,4 @@
-<script type="text/javascript">
-  $('.typeahead').typeahead()
-</script>
-
 <%=form_tag( 'welcome/search', method: :get, class: 'form-search' ) do %>
-
   <div class="field">
     キーワード
     <%= text_field_tag :keyword, '',
@@ -21,7 +16,7 @@
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-              その他の条件
+              詳細な条件
             </a>
           </h4>
         </div>
