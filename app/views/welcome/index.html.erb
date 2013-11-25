@@ -5,10 +5,11 @@
 <%=form_tag( 'welcome/search', method: :get, class: 'form-search' ) do %>
 
   <div class="field">
+    キーワード
     <%= text_field_tag :keyword, '',
                        'data-items' => "8",
                        'data-provide' => "typeahead",
-                       'data-source' => '["Ruby","Rails","Python","Scala","Java","PHP","C++","Perl","Objective-C","ActionScript","JavaScript","Struts","Seasar2","Spring","Hibernate","CakePHP","Symfony","CodeIgniter","FuelPHP","Django","Pylons",".NET","Unity","jQuery","Padrino","Sinatra"]'
+                       'data-source' => '["Ruby","Rails","Python","Scala","Java","PHP","C++","Perl","Objective-C","ActionScript","JavaScript","Struts","Seasar2","Spring","Hibernate","CakePHP","Symfony","CodeIgniter","FuelPHP","Django","Pylons",".NET","Unity","jQuery","Padrino","Sinatra","Catalyst"]'
     %>
   </div>
   <div class="actions">
