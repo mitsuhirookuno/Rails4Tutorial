@@ -12,9 +12,9 @@
       <% elsif time_line.instance_of?(Doorkeeper::TimeLine) %>
           <%=image_tag( '/images/doorkeeper_icon.png', :size => '16x16' ) %>
       <% end %>
-      <%= link_to "Link", time_line.inner_link, class: 'btn btn-link' %>
+      <%= link_to "詳細", time_line.inner_link, class: 'btn btn-link' %>
       <%=time_line.started_at.to_s(:short_jp)%>
-      <%=time_line.title[0..40] %>
+      <%=truncate( time_line.title, length: 40, omission: "・・・" ) %>
     </li>
   <% } %>
 </ul>

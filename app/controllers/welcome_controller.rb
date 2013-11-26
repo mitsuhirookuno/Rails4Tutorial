@@ -36,7 +36,7 @@ class WelcomeController < ApplicationController
 
     if params[:qiita].presence
       @parameters = { per_page: @page_size, page: @page }
-      @qiita_timelines = Qiita.user_items( nil, @parameters )
+      @qiita_timelines = Qiita.search_items( params[:keyword], @parameters )
       @qiita_timelines.each{|timeline| @list.push(Qiita::TimeLine.new(timeline)) }
     end
 
