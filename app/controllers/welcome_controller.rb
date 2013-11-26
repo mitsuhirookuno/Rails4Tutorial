@@ -30,7 +30,7 @@ class WelcomeController < ApplicationController
     end
 
     if params[:doorkeeper].presence
-      @doorkeeper_events = ActiveSupport::JSON.decode( get_doorkeeper_connection.get("/events?q=#{params[:keyword]}").body )
+      @doorkeeper_events = ActiveSupport::JSON.decode( get_doorkeeper_connection.get( "/events?q=#{params[:keyword]}").body )
       @doorkeeper_events.each{|event| @list.push(Doorkeeper::TimeLine.new(event)) }
     end
 
