@@ -6,7 +6,8 @@ $('.typeahead').typeahead();
 
 $ ->
   $("#keyword").focus(->
-    $(this).removeClass().val ""  if $(this).hasClass("dummy_text")
+    # $(this).removeClass().val ""  if $(this).hasClass("span2 search-query dummy_text")
+    $(this).addClass("search-query").val ""  if $(this).hasClass("search-query dummy_text")
   ).blur(->
-    $(this).addClass("dummy_text").val "検索したいキーワード"  if $(this).val().length is 0
+    $(this).addClass("search-query dummy_text").val "please input!"  if $(this).val().length is 0
   ).blur()
