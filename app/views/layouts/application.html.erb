@@ -92,40 +92,7 @@
     <%=render "welcome/footer" %>
   </div> <!-- /container -->
 
-  <div class="modal hide" id="myModal">
-    <div class="modal-header">
-      <a class="close" data-dismiss="modal">×</a>
-      <h3><%=Settings.app_name %>について</h3>
-    </div>
-    <div class="modal-body">
-      <p>
-本サイトは、WebApiを使った技術情報＆イベント検索サービスです。<br/>
-<br/>
-現在は、<%=link_to 'Qiita', 'http://qiita.com' %> から技術情報<br/>
-        <%=link_to 'Zussar', 'http://zusaar.com' %>,
-        <%=link_to 'Connpass', 'http://connpass.com' %>,
-        <%=link_to 'Atnd', 'http://atnd.org' %>,
-        <%=link_to 'Doorkeeper', 'http://www.doorkeeper.jp' %>
-からイベント情報を検索可能です。<br/>
-<br/>
-検索条件、及び付加機能を追加していきます。<br/>
-<p class="text-warning">※2013年11月27日現在、atndのapiからデータが取得出来ない状態です。</p>
-
-      </p>
-    </div>
-    <div class="modal-footer">
-      <%=link_to( image_tag( '/images/github_icon.ico',  :size => '16x16' ) + 'onGithub',
-                  'https://github.com/mitsuhirookuno/Rails4Tutorial',
-                  { 'target' => '_blank', 'data-toggle' => 'tooltip', 'title' => 'ソースコードはこちら！' }    ) %>
-      <%=link_to( image_tag( '/images/jenkins_icon.ico', :size => '16x16' ) + 'onJenkins',
-                  'http://jenkins.rubyprogrammer.info/job/Rails4Tutorial-Build/',
-                  { 'target' => '_blank', 'data-toggle' => 'tooltip', 'title' => '継続的インテグレーションツールはこちら！' }    ) %>
-      <%=link_to( image_tag( '/images/blog_icon.png',    :size => '16x16' ) + 'onBlog',
-                  'http://www.rubyprogrammer.info/',
-                  { 'target' => '_blank', 'data-toggle' => 'tooltip', 'title' => '作者のblog(？)はこちら！' }    ) %>
-      <a href="#" class="btn" data-dismiss="modal">Close</a>
-    </div>
-  </div>
+  <%= render 'welcome/about' %>
 
     <!-- Javascripts
     ================================================== -->
