@@ -27,6 +27,8 @@ module Rails4Sandbox
 
     # add autoload_paths
     config.autoload_paths += Dir["#{config.root}/lib"]
+
+    config.assets.precompile += ['application-print.css']
   end
 end
 

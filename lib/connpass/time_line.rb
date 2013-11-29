@@ -8,6 +8,10 @@ module Connpass
       Time.parse(self.data['started_at'])
     end
 
+    def ended_at
+      Time.parse(self.data['ended_at'])
+    end
+
     def title
       self.data['title']
     end

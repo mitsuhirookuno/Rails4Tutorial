@@ -8,6 +8,10 @@ module Qiita
       Time.parse(self.data['created_at'])
     end
 
+    def started_at
+      Time.parse(self.data['created_at'])
+    end
+
     def title
       self.data['title']
     end

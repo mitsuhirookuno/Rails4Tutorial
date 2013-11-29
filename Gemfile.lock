@@ -77,6 +77,7 @@ GEM
     flay (2.4.0)
       ruby_parser (~> 3.0)
       sexp_processor (~> 4.0)
+    fullcalendar-rails (1.6.4.0)
     haml (4.0.4)
       tilt
     hashie (1.2.0)
@@ -288,6 +289,7 @@ DEPENDENCIES
   connpass
   faraday
   flay
+  fullcalendar-rails
   jbuilder (~> 1.2)
   jquery-rails
   kaminari

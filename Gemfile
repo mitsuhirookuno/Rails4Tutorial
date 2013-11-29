@@ -102,3 +102,5 @@ gem 'atndr'
 # partake
 gem 'kaminari'
 gem 'RedCloth'
+
+gem 'fullcalendar-rails'

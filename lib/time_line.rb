@@ -14,4 +14,10 @@ class TimeLine
     'http://sandbox.rubyprogrammer.info/'
   end
 
+  def started_at
+  end
+
+  def ended_at
+  end
+
 end

@@ -8,6 +8,10 @@ module Doorkeeper
       Time.parse(self.data['event']['starts_at'])
     end
 
+    def ended_at
+      Time.parse(self.data['event']['ends_at'])
+    end
+
     def title
       self.data['event']['title']
     end
