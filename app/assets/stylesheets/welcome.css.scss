@@ -3,6 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @charset "UTF-8";
 
+
+ul.nav-list li {
+  border-bottom: 1px dashed #aaa;
+  &:first-child {
+    border-bottom: 1px solid #aaa;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+  a {
+    line-height: 40px;
+  }
+}
+
+footer {
+  padding: 2em;
+  p {
+    text-align: center;
+  }
+}
+
 input.common {
   background: -moz-linear-gradient(center top , #FFA400 0%, #F08300 100%) repeat scroll 0 0 transparent;
   border: 1px solid #B37504;

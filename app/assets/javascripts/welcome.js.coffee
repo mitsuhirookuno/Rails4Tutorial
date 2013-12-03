@@ -14,6 +14,7 @@ $ ->
 
 # 'http://www.google.com/calendar/feeds/ja.japanese%23holiday%40group.v.calendar.google.com/public/full/'
 $(document).ready ->
+  return unless events?
   $("#calendar").fullCalendar
     header:
       left: "prev,next today"
