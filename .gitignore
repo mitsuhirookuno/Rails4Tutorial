@@ -28,7 +28,7 @@ doc/
 bundle_bin/
 coverage/
 .yardoc/
-public/assets/
+
 # rails_config
 config/settings.local.yml
 config/settings/*.local.yml
