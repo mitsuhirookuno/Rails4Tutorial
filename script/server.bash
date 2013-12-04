@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PID=tmp/pids/server.pid
-CMD="bundle exec rails server -p 4001 -d"
+CMD="bundle exec rails server -p 4001 -e production -d"
 action="$1"
 
 sig () {
