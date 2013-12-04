@@ -5,11 +5,11 @@ module Doorkeeper
   class TimeLine < TimeLine
 
     def started_at
-      Time.parse(self.data['event']['starts_at'])
+      Time.parse(self.data['event']['starts_at']) + 9.hour
     end
 
     def ended_at
-      Time.parse(self.data['event']['ends_at'])
+      Time.parse(self.data['event']['ends_at']) + 9.hour
     end
 
     def title
