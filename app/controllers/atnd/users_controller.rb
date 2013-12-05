@@ -13,7 +13,7 @@ class Atnd::UsersController < ApplicationController
 
   def show
     search_result = Atndr::User.new.get_user( owner_id: params[:id] )
-    @events = search_result
+    @events = search_result.first['event']
   end
 
   private if Rails.env != "development"

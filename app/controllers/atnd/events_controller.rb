@@ -21,12 +21,12 @@ class Atnd::EventsController < ApplicationController
     end
     @offset += ((@page - 1 ) * @page_size )
     @parameters = { count: @page_size, start: @offset }
-    @events = Atndr::Event.new.get_event(@parameters)
+    @events = Atndr::Event.new.get_event(@parameters).first['event']
   end
 
   def show
-    search_result = Atndr::Event.new.get_event( event_id: params[:id] )
-    @event = search_result.first
+    search_result = Atndr::Event.new.get_event( event_id: Base64.decode64(params[:id]) )
+    @event = search_result.first['event'].first
   end
 
   private if Rails.env != "development"

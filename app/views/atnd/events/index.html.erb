@@ -13,7 +13,7 @@
             <%= @offset + index %>
           </span>
         </td>
-        <td><%= link_to( event['title'][0..40], action: 'show', id: event['event_id'] ) %></td>
+        <td><%= link_to( event['title'][0..40], action: 'show', id: Base64.encode64(event['event_id']) ) %></td>
         <td><%= Time.parse(event['started_at']).to_s(:short_jp) %></td>
         <td><%= link_to( event['owner_nickname'], controller: 'users', action: 'show', id: event['owner_id'] ) %></td>
         <td><a href="#" role="button" rel="popover" class="btn popover-test"

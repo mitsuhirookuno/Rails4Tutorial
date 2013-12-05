@@ -16,6 +16,13 @@ module Atnd
       self.data['title']
     end
 
+    def link
+      self.data['event_url']
+    end
+
+    def inner_link
+      '/atnd/events/%s' % Base64.encode64(self.data['event_id']).chomp
+    end
   end
 
 end

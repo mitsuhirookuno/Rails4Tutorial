@@ -11,7 +11,7 @@ describe Atnd::EventsController do
 
   describe "GET 'show'" do
     it "returns http success" do
-      get 'show', id: "45236"
+      get 'show', id: 'MjI1MjAvMA==%0A'
       response.should be_success
     end
   end
