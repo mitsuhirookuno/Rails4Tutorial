@@ -15,17 +15,17 @@ class WelcomeController < ApplicationController
     @list = Array.new
 
     if params[:zussar].presence
-      @zussar_events = Zusaar.search_events( keyword: params[:keyword] )
+      @zussar_events = Zusaar.search_events( keyword: params[:keyword], count: 100 )
       @zussar_events.events.each{|event| @list.push(Zussar::TimeLine.new(event)) }
     end
 
     if params[:connpass].presence
-      @connpass_events = Connpass.event_search( keyword: params[:keyword] )
+      @connpass_events = Connpass.event_search( keyword: params[:keyword], count: 100 )
       @connpass_events['events'].each{|event| @list.push(Connpass::TimeLine.new(event)) }
     end
 
     if params[:atnd].presence
-      @atnd_events = Atndr::Event.new.get_event( keyword: URI.encode(params[:keyword]) )
+      @atnd_events = Atndr::Event.new.get_event( keyword: URI.encode(params[:keyword]), count: 100 )
       @atnd_events.each{|event| @list.push(Atnd::TimeLine.new(event)) }
     end
 
@@ -35,7 +35,9 @@ class WelcomeController < ApplicationController
     end
 
     if params[:qiita].presence
-      @parameters = { per_page: @page_size, page: @page }
+      per_page_max = 100
+      page_first = 1
+      @parameters = { per_page: per_page_max, page: page_first }
       @qiita_timelines = Qiita.search_items( params[:keyword], @parameters )
       @qiita_timelines.each{|timeline| @list.push(Qiita::TimeLine.new(timeline)) }
     end

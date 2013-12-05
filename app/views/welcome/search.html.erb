@@ -53,24 +53,24 @@ events.push(event) ;
     <div style='margin:3em 0;font-size:13px;border-style: none;'>
       <ul>
         <% @list.find_all{|i| i.instance_of?(Qiita::TimeLine) }.each{|time_line| %>
-            <li>
-              <% if time_line.instance_of?(Qiita::TimeLine) %>
-                  <%=image_tag( '/images/qiita_icon.ico', :size => '16x16' ) %>
-              <% elsif time_line.instance_of?(Zussar::TimeLine) %>
-                  <%=image_tag( '/images/zusaar_icon.ico', :size => '16x16' ) %>
-              <% elsif time_line.instance_of?(Connpass::TimeLine) %>
-                  <%=image_tag( '/images/connpass_icon.ico', :size => '16x16' ) %>
-              <% elsif time_line.instance_of?(Atnd::TimeLine) %>
-                  <%=image_tag( '/images/pin.ico', :size => '16x16' ) %>
-              <% elsif time_line.instance_of?(Doorkeeper::TimeLine) %>
-                  <%=image_tag( '/images/doorkeeper_icon.png', :size => '16x16' ) %>
-              <% end %>
-              　
-              <%= link_to( time_line.inner_link ) do %>
-                  <i class="icon-info-sign"></i>
-                  <%=truncate( time_line.title, length: 40, omission: "・・・" ) %>
-              <% end %>
-            </li>
+          <li>
+            <% if time_line.instance_of?(Qiita::TimeLine) %>
+              <%=image_tag( '/images/qiita_icon.ico', :size => '16x16' ) %>
+            <% elsif time_line.instance_of?(Zussar::TimeLine) %>
+              <%=image_tag( '/images/zusaar_icon.ico', :size => '16x16' ) %>
+            <% elsif time_line.instance_of?(Connpass::TimeLine) %>
+              <%=image_tag( '/images/connpass_icon.ico', :size => '16x16' ) %>
+            <% elsif time_line.instance_of?(Atnd::TimeLine) %>
+              <%=image_tag( '/images/pin.ico', :size => '16x16' ) %>
+            <% elsif time_line.instance_of?(Doorkeeper::TimeLine) %>
+              <%=image_tag( '/images/doorkeeper_icon.png', :size => '16x16' ) %>
+            <% end %>
+             　
+            <%= link_to( time_line.inner_link ) do %>
+              <i class="icon-info-sign"></i>
+              <%=truncate( time_line.title, length: 40, omission: "・・・" ) %>
+            <% end %>
+          </li>
         <% } %>
       </ul>
     </div>

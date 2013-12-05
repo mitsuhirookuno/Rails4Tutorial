@@ -1,1 +1,13 @@
+<p>
+<% image_tag_out = image_tag( @item.user.profile_image_url, width: '48px', alt: @item.user.url_name, title: @item.user.url_name ) %>
+<%=link_to( image_tag_out, controller: 'qiita/users', action: 'show', id: @item.user.url_name ) %>
+</p>
+
+<% @item.tags.each_with_index{ | tag, index | %>
+  <p>
+    <% image_tag_out = image_tag_completion_missing( tag['icon_url'], alt: tag['name'], title: tag['name'], page: 1 ) %>
+    <%= link_to( image_tag_out, controller: 'qiita/tags', action: 'show', id: tag['name'] ) %>
+  </p>
+<% } %>
+
 <%=raw @item.body %>
