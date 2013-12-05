@@ -25,8 +25,10 @@ class WelcomeController < ApplicationController
     end
 
     if params[:atnd].presence
-      @atnd_events = Atndr::Event.new.get_event( keyword: URI.encode(params[:keyword]), count: 100 )
-      @atnd_events.first['event'].each{|event| @list.push(Atnd::TimeLine.new(event)) }
+      @atnd_events = ActiveSupport::JSON.decode( get_atnd_connection.get( "/eventatnd/event/?format=json&count=100&keyword=#{URI.encode(params[:keyword])}").body )
+      if @atnd_events["results_available"] > 0
+        @atnd_events["events"].first['event'].each{|event| @list.push(Atnd::TimeLine.new(event)) }
+      end
     end
 
     if params[:doorkeeper].presence
@@ -50,6 +52,10 @@ class WelcomeController < ApplicationController
   def get_doorkeeper_connection
     # FIXME : リトライ処理の実装
     get_connection( "http://api.doorkeeper.jp/" )
+  end
+
+  def get_atnd_connection
+    get_connection( "http://api.atnd.org/" )
   end
 
 end
