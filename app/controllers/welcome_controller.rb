@@ -59,8 +59,12 @@ class WelcomeController < ApplicationController
           per_page_max = 100
           page_first = 1
           @parameters = { per_page: per_page_max, page: page_first }
-          @qiita_timelines = Qiita.search_items( params[:keyword], @parameters )
-          @qiita_timelines.each{|timeline| @list.push(Qiita::TimeLine.new(timeline)) }
+          begin
+            @qiita_timelines = Qiita.search_items( params[:keyword], @parameters )
+            @qiita_timelines.each{|timeline| @list.push(Qiita::TimeLine.new(timeline)) }
+          rescue Faraday::Error::ParsingError => ex
+            flash.now[:alert] = 'Qiita-APIの呼び出しに失敗しました、Qiitaの情報は表示されていません'
+          end
         }
       )
     end
