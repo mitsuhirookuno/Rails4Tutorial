@@ -4,6 +4,7 @@
   <h3>
     <%= link_to_different_domain( @event['title'], @event['event_url'] ) %>
     <small><%=@event['catch'] %></small>
+    <a class="btn btn-info" href="<%=@event['event_url'] %>"><%=image_tag( '/images/connpass_icon.ico', :size => '16x16' ) %><i class="icon-share-alt icon-white"></i>Connpassで見る</a>
   </h3>
 </div>
 

@@ -3,6 +3,7 @@
 <div class="page-header">
   <h3>
     <%= link_to_different_domain( @event.title, @event.event_url ) %>
+    <a class="btn btn-info" href="<%=@event.event_url %>"><%=image_tag( '/images/zusaar_icon.ico', :size => '16x16' ) %><i class="icon-share-alt icon-white"></i>Zussarで見る</a>
   </h3>
 </div>
 

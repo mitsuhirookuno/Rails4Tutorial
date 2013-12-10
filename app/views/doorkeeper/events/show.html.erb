@@ -2,8 +2,13 @@
 
 <div class="page-header">
   <h3>
-    　<%= link_to_different_domain( @event['title'], @event['public_url'] ) %>
-    　</h3>
+    <%= link_to_different_domain( @event['title'], @event['public_url'] ) %>
+    <a class="btn btn-info" href="<%=@event['public_url'] %>">
+      <%=image_tag( '/images/doorkeeper_icon.png', :size => '16x16' ) %>
+      Doorkeeperで見る
+      <i class="icon-share-alt icon-white"></i>
+    </a>
+  </h3>
 </div>
 
 <h4>

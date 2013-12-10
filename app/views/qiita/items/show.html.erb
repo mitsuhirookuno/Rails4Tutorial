@@ -10,4 +10,10 @@
   </p>
 <% } %>
 
+<div class="page-header">
+  <h3>
+    <%= @item.title %>
+    <a class="btn btn-info" href="<%=@item.url %>"><%=image_tag( '/images/qiita_icon.ico', :size => '16x16' ) %><i class="icon-share-alt icon-white"></i>Qiitaで見る</a>
+  </h3>
+</div>
 <%=raw @item.body %>
