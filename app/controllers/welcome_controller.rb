@@ -15,6 +15,12 @@ class WelcomeController < ApplicationController
     @list = Array.new
     thread_list = Array.new
 
+    params[:keyword] = '' if params[:keyword] == 'please input!'
+    if params[:keyword].blank?
+      flash.now[:info] = '検索キーワードを入力して下さい'
+      render(:index) and return
+    end
+
     if params[:zussar].presence
       thread_list.push(
         Thread.new {
