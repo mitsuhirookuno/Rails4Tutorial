@@ -21,6 +21,13 @@ class WelcomeController < ApplicationController
       render(:index) and return
     end
 
+    camelized_keyword = params[:keyword].camelize
+    unless( search_word = SearchWord.find_by( name: camelized_keyword ) )
+      search_word = SearchWord.create( name: camelized_keyword, number: 0 )
+    end
+    search_word.number += 1
+    search_word.save
+
     if params[:zussar].presence
       thread_list.push(
         Thread.new {
@@ -78,6 +85,12 @@ class WelcomeController < ApplicationController
     # binding.pry
     thread_list.each {|t| t.join }
     @list.sort_by!{|r| r.started_at }
+  end
+
+  private
+
+  def search_word_params
+    params.require(:search_word).permit( :name, :number )
   end
 
   def get_doorkeeper_connection
