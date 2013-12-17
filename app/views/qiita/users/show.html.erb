@@ -18,7 +18,9 @@
   <% @qiita_timelines.each_with_index{ | timeline, index | %>
       <tr>
         <td><span class="badge"><%= @offset + index %></span></td>
-        <td><%=link_to_different_domain( timeline['title'], timeline['url'] ) %></td>
+        <td>
+          <%=link_to( timeline['title'], controller: 'qiita/items', action: 'show', id: timeline['uuid'] ) %>
+        </td>
         <td>
           <% timeline['tags'].each_with_index{ | tag, index | %>
         <span class='qiita_category_image'>

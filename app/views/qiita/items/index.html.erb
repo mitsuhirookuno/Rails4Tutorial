@@ -16,7 +16,6 @@
         </td>
         <td>
           <%=link_to( timeline['title'], controller: 'qiita/items', action: 'show', id: timeline['uuid'] ) %>
-          <%#=link_to_different_domain( timeline['title'], timeline['url'] ) %>
         </td>
         <td>
           <% timeline['tags'].each_with_index{ | tag, index | %>

@@ -29,7 +29,7 @@
           <% } %>
         </td>
         <td>
-          <%=link_to_different_domain( timeline['title'], timeline['url'] ) %>
+          <%=link_to( timeline['title'], controller: 'qiita/items', action: 'show', id: timeline['uuid'] ) %>
         </td>
         <td>
           <% image_tag_out = image_tag( user['profile_image_url'], width: '48px', alt: user['url_name'], title: user['url_name'] ) %>
