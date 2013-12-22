@@ -6,3 +6,11 @@ module Atndr
     URL_BASE = "http://api.atnd.org/eventatnd/event/"
   end
 end
+
+module Zusaar
+  class Event < Zusaar::Identity
+    def attr
+      @attrs
+    end
+  end
+end
