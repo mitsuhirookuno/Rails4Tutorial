@@ -23,7 +23,6 @@ test:
 #  database: db/production.sqlite3
 #  pool: 5
 #  timeout: 5000
-
 production:
   adapter: mysql2
   encoding: utf8
@@ -33,3 +32,4 @@ production:
   username: <% ENV['DATABASE_USER']%>
   password: <% ENV['DATABASE_PASSWORD']%>
   host: localhost
+  port: 3306
