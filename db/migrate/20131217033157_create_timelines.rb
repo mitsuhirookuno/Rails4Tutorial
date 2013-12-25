@@ -2,7 +2,7 @@ class CreateTimelines < ActiveRecord::Migration
   def change
     create_table :timelines do |t|
       t.integer :source_type
-      t.text :data
+      t.binary :data
       t.integer :search_word_id
 
       t.timestamps

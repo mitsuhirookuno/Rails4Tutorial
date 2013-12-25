@@ -121,7 +121,7 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.8.2)
     multipart-post (1.2.0)
-    mysql (2.9.1)
+    mysql2 (0.3.14)
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -297,7 +297,7 @@ DEPENDENCIES
   less-rails
   minimum-omniauth-scaffold
   mocha
-  mysql
+  mysql2
   protected_attributes
   pry
   pry-nav
