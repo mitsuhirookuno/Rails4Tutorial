@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20131217033157) do
 
   create_table "timelines", force: true do |t|
     t.integer  "source_type"
-    t.binary   "data"
+    t.binary   "data",           limit: 5242880
     t.integer  "search_word_id"
     t.datetime "created_at"
     t.datetime "updated_at"
