@@ -29,6 +29,8 @@ module Rails4Sandbox
     config.autoload_paths += Dir["#{config.root}/lib"]
 
     # config.assets.precompile += ['application-print.css']
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end
 
