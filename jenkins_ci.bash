@@ -1,7 +1,6 @@
 #!/bin/bash
 source ~/.bash_profile
-env
-bundle install --path vendor/bundler/
+bundle install --path vendor/bundler/ --no-rdoc --no-ri
 bundle exec rake db:migrate RAILS_ENV=test
 bundle exec rake db:migrate RAILS_ENV=production
 bundle exec rspec -f h -o doc/rspec.html

@@ -39,6 +39,8 @@ events.push(event) ;
 // -->
 </script>
 
+<%=render "welcome/form" %>
+
 <ul class="nav nav-tabs">
   <li class="active"><a href="#event_calendar" data-toggle="tab">イベントカレンダー</a></li>
   <li><a href="#tips" data-toggle="tab">Tips</a></li>
@@ -70,6 +72,7 @@ events.push(event) ;
               <i class="icon-info-sign"></i>
               <%=truncate( time_line.title, length: 40, omission: "・・・" ) %>
             <% end %>
+
           </li>
         <% } %>
       </ul>
