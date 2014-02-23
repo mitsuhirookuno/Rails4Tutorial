@@ -2,9 +2,15 @@
 
     <div class="input-append">
       キーワード
+      <%
+         list = ["Ruby","Rails","Python","Scala","Java","PHP","C++","Perl","Objective-C","ActionScript","JavaScript","Struts","Seasar2","Spring","Hibernate","CakePHP","Symfony","CodeIgniter","FuelPHP","Django","Pylons",".NET","Unity","jQuery","Padrino","Sinatra","Catalyst"]
+         list.concat(SearchWord.pluck(:name))
+         list.uniq!
+      %>
       <%= text_field_tag :keyword, params['keyword'],
                          'data-provide' => "typeahead",
-                         'data-source' => '["Ruby","Rails","Python","Scala","Java","PHP","C++","Perl","Objective-C","ActionScript","JavaScript","Struts","Seasar2","Spring","Hibernate","CakePHP","Symfony","CodeIgniter","FuelPHP","Django","Pylons",".NET","Unity","jQuery","Padrino","Sinatra","Catalyst"]'
+                         'autocomplete' => 'off',
+                         'data-source' => ('["%s"]' % list.join('","'))
       %>
       <!--- ToDo : data-sourceをDB生成する -->
       <!--- ToDo : button_to で書きたい -->
